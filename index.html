@@ -2048,15 +2048,19 @@ function submitForm(e) {
     btn.textContent = 'Enviando...';
     btn.disabled = true;
 
-    const data = new FormData(form);
-    data.append('access_key', 'TU_ACCESS_KEY_AQUI');
-    data.append('subject', 'Nuevo mensaje - Arretxe Motos');
-    data.append('from_name', 'Web Arretxe Motos');
+    const formData = new FormData(form);
+    const payload = {
+        nombre:    formData.get('nombre'),
+        apellidos: formData.get('apellidos'),
+        email:     formData.get('email'),
+        telefono:  formData.get('telefono'),
+        mensaje:   formData.get('mensaje')
+    };
 
-    fetch('https://api.web3forms.com/submit', {
+    fetch('https://script.google.com/macros/s/AKfycbxsn9c0ND9LAgEFfzcdml8x3KhyeDSE66nulzWQxEsoTd0_-Nv5DQNdO3fxEuqOBcnJ/exec', {
         method: 'POST',
-        body: data,
-        headers: { 'Accept': 'application/json' }
+        body: JSON.stringify(payload),
+        headers: { 'Content-Type': 'application/json' }
     })
     .then(res => {
         if (res.ok) {
