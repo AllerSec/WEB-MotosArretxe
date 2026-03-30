@@ -2043,18 +2043,34 @@ function submitForm(e) {
     const btn = document.getElementById('submitBtn');
     const form = document.getElementById('contactForm');
     const success = document.getElementById('formSuccess');
-    const t = translations[currentLang];
+    const originalText = btn.textContent;
 
     btn.textContent = 'Enviando...';
     btn.disabled = true;
 
-    setTimeout(() => {
-        form.style.display = 'none';
-        success.style.display = 'block';
-        if (t && t['contact.form.success']) {
-            success.innerHTML = t['contact.form.success'];
+    fetch('https://formspree.io/f/xpwzbekj', {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+    })
+    .then(res => {
+        if (res.ok) {
+            form.reset();
+            form.style.display = 'none';
+            success.style.display = 'block';
+        } else {
+            res.json().then(data => {
+                btn.textContent = originalText;
+                btn.disabled = false;
+                alert('Error al enviar. Inténtalo de nuevo o llámanos al 943 625 905.');
+            });
         }
-    }, 1800);
+    })
+    .catch(() => {
+        btn.textContent = originalText;
+        btn.disabled = false;
+        alert('Error de conexión. Inténtalo de nuevo o llámanos al 943 625 905.');
+    });
 }
 
 /* =============================================
