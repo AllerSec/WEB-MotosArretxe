@@ -2059,21 +2059,14 @@ function submitForm(e) {
 
     fetch('https://script.google.com/macros/s/AKfycbxsn9c0ND9LAgEFfzcdml8x3KhyeDSE66nulzWQxEsoTd0_-Nv5DQNdO3fxEuqOBcnJ/exec', {
         method: 'POST',
+        mode: 'no-cors',
         body: JSON.stringify(payload),
         headers: { 'Content-Type': 'application/json' }
     })
-    .then(res => {
-        if (res.ok) {
-            form.reset();
-            form.style.display = 'none';
-            success.style.display = 'block';
-        } else {
-            res.json().then(data => {
-                btn.textContent = originalText;
-                btn.disabled = false;
-                alert('Error al enviar. Inténtalo de nuevo o llámanos al 943 625 905.');
-            });
-        }
+    .then(() => {
+        form.reset();
+        form.style.display = 'none';
+        success.style.display = 'block';
     })
     .catch(() => {
         btn.textContent = originalText;
