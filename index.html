@@ -2050,11 +2050,11 @@ function submitForm(e) {
 
     const formData = new FormData(form);
     const payload = {
-        nombre:    formData.get('nombre'),
-        apellidos: formData.get('apellidos'),
+        nombre:    formData.get('name'),
+        apellidos: '',
         email:     formData.get('email'),
-        telefono:  formData.get('telefono'),
-        mensaje:   formData.get('mensaje')
+        telefono:  formData.get('phone') || 'No indicado',
+        mensaje:   formData.get('message')
     };
 
     fetch('https://script.google.com/macros/s/AKfycbxsn9c0ND9LAgEFfzcdml8x3KhyeDSE66nulzWQxEsoTd0_-Nv5DQNdO3fxEuqOBcnJ/exec', {
