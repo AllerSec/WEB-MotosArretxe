@@ -34,7 +34,7 @@
     <meta name="twitter:image" content="galeria_IMG_9399.webp">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="LOGO.png">
+    <link rel="icon" type="image/png" href="LOGO-FAVICON.png" id="favicon">
     <link rel="apple-touch-icon" href="LOGO.png">
 
     <!-- Schema.org LocalBusiness -->
@@ -638,6 +638,23 @@
         .motos-section .section-header {
             text-align: center;
             margin-bottom: 48px;
+        }
+        .brand-block {
+            max-width: 1100px;
+            margin: 0 auto 60px;
+        }
+        .brand-block:last-of-type { margin-bottom: 0; }
+        .brand-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 28px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid var(--red);
+        }
+        .brand-logo {
+            height: 48px;
+            width: auto;
+            object-fit: contain;
         }
         .motos-grid {
             max-width: 1100px;
@@ -1271,6 +1288,27 @@
         @media (max-width: 400px) {
             .legal-modal { padding: 28px 18px; }
         }
+
+        /* ===== MOBILE COLLAPSE ===== */
+        .show-more-btn {
+            display: none;
+            margin: 20px auto 0;
+            padding: 10px 28px;
+            background: var(--red);
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-size: 0.92rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .show-more-btn:hover { background: #a30000; }
+        @media (max-width: 768px) {
+            .show-more-btn { display: block; }
+            .motos-grid:not(.expanded) .moto-card:nth-child(n+4) { display: none; }
+            .gallery-grid:not(.expanded) .gallery-item:nth-child(n+3) { display: none; }
+        }
     </style>
 </head>
 <body>
@@ -1363,11 +1401,11 @@
 <!-- ===== CTA TELEFONO ===== -->
 <section class="cta-phone">
     <div class="cta-phone-inner">
-        <div class="cta-phone-label">Llámanos ahora</div>
+        <div class="cta-phone-label" data-i18n="cta.label">Llámanos ahora</div>
         <div class="cta-phone-numbers">
             <a href="tel:943625905" class="cta-phone-main">943 625 905</a>
         </div>
-        <div class="cta-phone-hours">Lunes a Viernes · 9:00–13:00 / 15:30–19:30</div>
+        <div class="cta-phone-hours" data-i18n="cta.hours">Lunes a Viernes · 9:00–13:00 / 15:30–19:30</div>
     </div>
 </section>
 
@@ -1448,8 +1486,8 @@
         </div>
         <div class="service-card">
             <div class="service-icon"><img src="icons/moto.svg" alt=""></div>
-            <h3 data-i18n="services.s2.title">Venta de Motos Honda</h3>
-            <p data-i18n="services.s2.desc">Distribuidor oficial Honda. Amplio catálogo de motos nuevas y asesoramiento personalizado.</p>
+            <h3 data-i18n="services.s2.title">Venta de Motos Honda y SYM</h3>
+            <p data-i18n="services.s2.desc">Distribuidor oficial Honda y SYM. Amplio catálogo de motos nuevas y asesoramiento personalizado.</p>
         </div>
         <div class="service-card">
             <div class="service-icon"><img src="icons/helmet.svg" alt=""></div>
@@ -1466,6 +1504,11 @@
             <h3 data-i18n="services.s6.title">Asesoramiento Técnico</h3>
             <p data-i18n="services.s6.desc">Consulta sin cita previa. Nuestros técnicos resuelven tus dudas con rapidez y profesionalidad.</p>
         </div>
+        <div class="service-card">
+            <div class="service-icon"><img src="icons/scooter.svg" alt=""></div>
+            <h3 data-i18n="services.s7.title">Especialistas en Scooters</h3>
+            <p data-i18n="services.s7.desc">Especialistas en scooters y ciclomotores. Servicio de neumáticos, revisiones y puestas a punto para tu scooter.</p>
+        </div>
     </div>
 </section>
 
@@ -1473,61 +1516,170 @@
 <section class="motos-section" id="motos">
     <div class="section-header">
         <h2 class="section-title" data-i18n="motos.title">Algunas de nuestras <span>Motos Disponibles</span></h2>
-        <p class="section-subtitle" data-i18n="motos.subtitle">Distribuidores oficiales Honda en Irún y Gipuzkoa &mdash; Consulta todo el catálogo</p>
+        <p class="section-subtitle" data-i18n="motos.subtitle">Distribuidores oficiales Honda y SYM en Irún y Gipuzkoa &mdash; Consulta todo el catálogo</p>
     </div>
-    <div class="motos-grid">
-        <div class="moto-card">
-            <div class="moto-card-img">
-                <img src="MOTOSPNG/forza125cc.png" alt="Honda Forza 125" loading="lazy">
+
+    <!-- Honda -->
+    <div class="brand-block">
+        <div class="brand-header">
+            <img src="honda-motorcycles-logo-11.png" alt="Honda" class="brand-logo">
+        </div>
+        <div class="motos-grid" id="grid-honda">
+            <div class="moto-card">
+                <div class="moto-card-img">
+                    <img src="MOTOSPNG/honda/forza125cc.png" alt="Honda Forza 125" loading="lazy">
+                </div>
+                <div class="moto-card-body">
+                    <h3>Honda Forza 125</h3>
+                    <p data-i18n="motos.m1.desc">Scooter premium 125cc, ágil y conectado para la ciudad</p>
+                    <a href="#contacto" class="btn-red-sm" data-i18n="motos.btn">Consultar</a>
+                </div>
             </div>
-            <div class="moto-card-body">
-                <h3>Honda Forza 125</h3>
-                <p data-i18n="motos.m1.desc">Scooter premium 125cc, ágil y conectado para la ciudad</p>
-                <a href="#contacto" class="btn-red-sm" data-i18n="motos.btn">Consultar</a>
+            <div class="moto-card">
+                <div class="moto-card-img">
+                    <img src="MOTOSPNG/honda/forza350cc.png" alt="Honda Forza 350" loading="lazy">
+                </div>
+                <div class="moto-card-body">
+                    <h3>Honda Forza 350</h3>
+                    <p data-i18n="motos.m2.desc">Scooter GT 350cc, potencia y confort para ciudad y carretera</p>
+                    <a href="#contacto" class="btn-red-sm" data-i18n="motos.btn">Consultar</a>
+                </div>
+            </div>
+            <div class="moto-card">
+                <div class="moto-card-img">
+                    <img src="MOTOSPNG/honda/pcx125cc.png" alt="Honda PCX 125" loading="lazy">
+                </div>
+                <div class="moto-card-body">
+                    <h3>Honda PCX 125</h3>
+                    <p data-i18n="motos.m3.desc">Scooter urbano 125cc eficiente, ligero y muy económico</p>
+                    <a href="#contacto" class="btn-red-sm" data-i18n="motos.btn">Consultar</a>
+                </div>
+            </div>
+            <div class="moto-card">
+                <div class="moto-card-img">
+                    <img src="MOTOSPNG/honda/pcxDX125.png" alt="Honda PCX DX 125" loading="lazy">
+                </div>
+                <div class="moto-card-body">
+                    <h3>Honda PCX DX 125</h3>
+                    <p data-i18n="motos.m4.desc">Versión Deluxe del PCX con equipamiento y acabados superiores</p>
+                    <a href="#contacto" class="btn-red-sm" data-i18n="motos.btn">Consultar</a>
+                </div>
+            </div>
+            <div class="moto-card">
+                <div class="moto-card-img">
+                    <img src="MOTOSPNG/honda/GB 350CC S.png" alt="Honda GB 350 S" loading="lazy">
+                </div>
+                <div class="moto-card-body">
+                    <h3>Honda GB 350 S</h3>
+                    <p data-i18n="motos.m5.desc">Naked clásica 350cc de carácter retro y gran presencia en carretera</p>
+                    <a href="#contacto" class="btn-red-sm" data-i18n="motos.btn">Consultar</a>
+                </div>
+            </div>
+            <div class="moto-card">
+                <div class="moto-card-img">
+                    <img src="MOTOSPNG/honda/adv350.png" alt="Honda ADV 350" loading="lazy">
+                </div>
+                <div class="moto-card-body">
+                    <h3>Honda ADV 350</h3>
+                    <p data-i18n="motos.m6.desc">Scooter adventure 350cc, versátil para ciudad y aventura off-road</p>
+                    <a href="#contacto" class="btn-red-sm" data-i18n="motos.btn">Consultar</a>
+                </div>
+            </div>
+            <div class="moto-card">
+                <div class="moto-card-img">
+                    <img src="MOTOSPNG/honda/cb125f.jpg" alt="Honda CB 125 F" loading="lazy">
+                </div>
+                <div class="moto-card-body">
+                    <h3>Honda CB 125 F</h3>
+                    <p data-i18n="motos.m7.desc">Naked urbana 125cc sencilla, fiable y perfecta para el día a día</p>
+                    <a href="#contacto" class="btn-red-sm" data-i18n="motos.btn">Consultar</a>
+                </div>
+            </div>
+            <div class="moto-card">
+                <div class="moto-card-img">
+                    <img src="MOTOSPNG/honda/hondacb125r.png" alt="Honda CB 125 R" loading="lazy">
+                </div>
+                <div class="moto-card-body">
+                    <h3>Honda CB 125 R</h3>
+                    <p data-i18n="motos.m8.desc">Naked deportiva 125cc con estilo neo-sports café y gran agilidad</p>
+                    <a href="#contacto" class="btn-red-sm" data-i18n="motos.btn">Consultar</a>
+                </div>
+            </div>
+            <div class="moto-card">
+                <div class="moto-card-img">
+                    <img src="MOTOSPNG/honda/hondavision110.png" alt="Honda Vision 110" loading="lazy">
+                </div>
+                <div class="moto-card-body">
+                    <h3>Honda Vision 110</h3>
+                    <p data-i18n="motos.m9.desc">Scooter compacto 110cc, económico y muy manejable en ciudad</p>
+                    <a href="#contacto" class="btn-red-sm" data-i18n="motos.btn">Consultar</a>
+                </div>
+            </div>
+            <div class="moto-card">
+                <div class="moto-card-img">
+                    <img src="MOTOSPNG/honda/shmode125.png" alt="Honda SH Mode 125" loading="lazy">
+                </div>
+                <div class="moto-card-body">
+                    <h3>Honda SH Mode 125</h3>
+                    <p data-i18n="motos.m10.desc">Scooter retro urbano 125cc, elegante y práctico para la ciudad</p>
+                    <a href="#contacto" class="btn-red-sm" data-i18n="motos.btn">Consultar</a>
+                </div>
             </div>
         </div>
-        <div class="moto-card">
-            <div class="moto-card-img">
-                <img src="MOTOSPNG/forza350cc.png" alt="Honda Forza 350" loading="lazy">
-            </div>
-            <div class="moto-card-body">
-                <h3>Honda Forza 350</h3>
-                <p data-i18n="motos.m2.desc">Scooter GT 350cc, potencia y confort para ciudad y carretera</p>
-                <a href="#contacto" class="btn-red-sm" data-i18n="motos.btn">Consultar</a>
-            </div>
-        </div>
-        <div class="moto-card">
-            <div class="moto-card-img">
-                <img src="MOTOSPNG/pcx125cc.png" alt="Honda PCX 125" loading="lazy">
-            </div>
-            <div class="moto-card-body">
-                <h3>Honda PCX 125</h3>
-                <p data-i18n="motos.m3.desc">Scooter urbano 125cc eficiente, ligero y muy económico</p>
-                <a href="#contacto" class="btn-red-sm" data-i18n="motos.btn">Consultar</a>
-            </div>
-        </div>
-        <div class="moto-card">
-            <div class="moto-card-img">
-                <img src="MOTOSPNG/pcxDX125.png" alt="Honda PCX DX 125" loading="lazy">
-            </div>
-            <div class="moto-card-body">
-                <h3>Honda PCX DX 125</h3>
-                <p data-i18n="motos.m4.desc">Versión Deluxe del PCX con equipamiento y acabados superiores</p>
-                <a href="#contacto" class="btn-red-sm" data-i18n="motos.btn">Consultar</a>
-            </div>
-        </div>
-        <div class="moto-card">
-            <div class="moto-card-img">
-                <img src="MOTOSPNG/GB 350CC S.png" alt="Honda GB 350 S" loading="lazy">
-            </div>
-            <div class="moto-card-body">
-                <h3>Honda GB 350 S</h3>
-                <p data-i18n="motos.m5.desc">Naked clásica 350cc de carácter retro y gran presencia en carretera</p>
-                <a href="#contacto" class="btn-red-sm" data-i18n="motos.btn">Consultar</a>
-            </div>
-        </div>
+        <button class="show-more-btn" onclick="toggleGrid('grid-honda', this)" data-i18n="motos.verTodas">Ver todas</button>
     </div>
-    <p style="text-align:center; margin-top:32px; color:var(--gray); font-size:0.9rem;" data-i18n="motos.note">Estas son solo algunas de las motos disponibles. <a href="#contacto" style="color:var(--red); font-weight:700;">Contáctanos</a> para consultar todo el catálogo Honda.</p>
+
+    <!-- SYM -->
+    <div class="brand-block">
+        <div class="brand-header">
+            <img src="logo-motos-sym-rojo.webp" alt="SYM" class="brand-logo">
+        </div>
+        <div class="motos-grid" id="grid-sym">
+            <div class="moto-card">
+                <div class="moto-card-img">
+                    <img src="MOTOSPNG/sym/fugue125.png" alt="SYM Fugue 125" loading="lazy">
+                </div>
+                <div class="moto-card-body">
+                    <h3>SYM Fugue 125</h3>
+                    <p data-i18n="motos.m11.desc">Scooter moderno 125cc con diseño elegante y gran autonomía</p>
+                    <a href="#contacto" class="btn-red-sm" data-i18n="motos.btn">Consultar</a>
+                </div>
+            </div>
+            <div class="moto-card">
+                <div class="moto-card-img">
+                    <img src="MOTOSPNG/sym/sym-jet-14-125.png" alt="SYM Jet 14 125" loading="lazy">
+                </div>
+                <div class="moto-card-body">
+                    <h3>SYM Jet 14 125</h3>
+                    <p data-i18n="motos.m12.desc">Scooter deportivo 125cc ágil y dinámico para moverse por la ciudad</p>
+                    <a href="#contacto" class="btn-red-sm" data-i18n="motos.btn">Consultar</a>
+                </div>
+            </div>
+            <div class="moto-card">
+                <div class="moto-card-img">
+                    <img src="MOTOSPNG/sym/sym-symphony-sr-125.png" alt="SYM Symphony SR 125" loading="lazy">
+                </div>
+                <div class="moto-card-body">
+                    <h3>SYM Symphony SR 125</h3>
+                    <p data-i18n="motos.m13.desc">Scooter clásico 125cc con acabados premium y gran comodidad</p>
+                    <a href="#contacto" class="btn-red-sm" data-i18n="motos.btn">Consultar</a>
+                </div>
+            </div>
+            <div class="moto-card">
+                <div class="moto-card-img">
+                    <img src="MOTOSPNG/sym/sym-symphony-st-125.png" alt="SYM Symphony ST 125" loading="lazy">
+                </div>
+                <div class="moto-card-body">
+                    <h3>SYM Symphony ST 125</h3>
+                    <p data-i18n="motos.m14.desc">Scooter urbano 125cc cómodo, versátil y de bajo consumo</p>
+                    <a href="#contacto" class="btn-red-sm" data-i18n="motos.btn">Consultar</a>
+                </div>
+            </div>
+        </div>
+        <button class="show-more-btn" onclick="toggleGrid('grid-sym', this)" data-i18n="motos.verTodas">Ver todas</button>
+    </div>
+
+    <p style="text-align:center; margin-top:32px; color:var(--gray); font-size:0.9rem;" data-i18n="motos.note">Estas son solo algunas de las motos disponibles. <a href="#contacto" style="color:var(--red); font-weight:700;">Contáctanos</a> para consultar todo el catálogo Honda y SYM.</p>
 </section>
 
 <!-- ===== GALLERY ===== -->
@@ -1536,7 +1688,7 @@
         <h2 class="section-title" data-i18n="gallery.title">Nuestra <span>Galería</span></h2>
         <p class="section-subtitle" data-i18n="gallery.subtitle">Instalaciones, trabajos y productos</p>
     </div>
-    <div class="gallery-grid">
+    <div class="gallery-grid" id="grid-galeria">
         <div class="gallery-item" onclick="openLightbox(0)">
             <img src="galeria_IMG_9369.webp" alt="Taller de motos Arretxe en Irún - interior del taller" loading="lazy">
             <div class="gallery-item-overlay">
@@ -1580,6 +1732,7 @@
             </div>
         </div>
     </div>
+    <button class="show-more-btn" onclick="toggleGrid('grid-galeria', this)" data-i18n="motos.verTodas">Ver todas</button>
 </section>
 
 <!-- ===== REVIEWS ===== -->
@@ -1725,25 +1878,7 @@
 <div class="legal-modal-overlay" id="modal-aviso" role="dialog" aria-modal="true" aria-label="Aviso Legal">
     <div class="legal-modal">
         <button class="legal-modal-close" onclick="closeLegal('aviso')" aria-label="Cerrar">&times;</button>
-        <h2>Aviso Legal</h2>
-        <p><strong>Última actualización:</strong> marzo de 2026</p>
-        <h3>1. Datos identificativos</h3>
-        <p>En cumplimiento con el deber de información recogido en el artículo 10 de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y del Comercio Electrónico (LSSICE), se facilitan los siguientes datos:</p>
-        <ul>
-            <li><strong>Razón social:</strong> Arretxe Motos y Maquinaria Agricola S.L.</li>
-            <li><strong>Domicilio social:</strong> Salvador Echeandia Kalea, 12, BJ 1, 20304 Irún, Gipuzkoa</li>
-            <li><strong>Teléfono:</strong> 943 62 59 05</li>
-            <li><strong>Email:</strong> motosarretxe@gmail.com</li>
-            <li><strong>Actividad:</strong> Taller de reparación y venta de motocicletas</li>
-        </ul>
-        <h3>2. Objeto y ámbito de aplicación</h3>
-        <p>El presente Aviso Legal regula el acceso y uso del sitio web <strong>www.motosarretxe.com</strong>. El acceso a este sitio web implica la aceptación plena de las condiciones establecidas en este aviso legal.</p>
-        <h3>3. Propiedad intelectual e industrial</h3>
-        <p>Todos los contenidos del sitio web (textos, imágenes, logotipos, diseño gráfico, código fuente) son titularidad de Arretxe Motos y Maquinaria Agricola S.L. o de sus licenciantes, y están protegidos por la legislación española e internacional sobre propiedad intelectual e industrial. Queda expresamente prohibida la reproducción, distribución o modificación sin autorización expresa.</p>
-        <h3>4. Exclusión de responsabilidad</h3>
-        <p>Arretxe Motos y Maquinaria Agricola S.L. no se responsabiliza de los daños derivados del uso del sitio web, de fallos técnicos o de la desactualización de la información publicada. Los contenidos pueden modificarse sin previo aviso.</p>
-        <h3>5. Legislación aplicable y jurisdicción</h3>
-        <p>Este aviso legal se rige por la legislación española. Para la resolución de cualquier controversia, las partes se someten a los juzgados y tribunales de Gipuzkoa, con renuncia expresa a cualquier otro fuero.</p>
+        <div data-i18n="legal.aviso"><h2>Aviso Legal</h2><p><strong>Última actualización:</strong> marzo de 2026</p><h3>1. Datos identificativos</h3><p>En cumplimiento con el deber de información recogido en el artículo 10 de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y del Comercio Electrónico (LSSICE), se facilitan los siguientes datos:</p><ul><li><strong>Razón social:</strong> Arretxe Motos y Maquinaria Agricola S.L.</li><li><strong>Domicilio social:</strong> Salvador Echeandia Kalea, 12, BJ 1, 20304 Irún, Gipuzkoa</li><li><strong>Teléfono:</strong> 943 62 59 05</li><li><strong>Email:</strong> motosarretxe@gmail.com</li><li><strong>Actividad:</strong> Taller de reparación y venta de motocicletas</li></ul><h3>2. Objeto y ámbito de aplicación</h3><p>El presente Aviso Legal regula el acceso y uso del sitio web <strong>www.motosarretxe.com</strong>. El acceso a este sitio web implica la aceptación plena de las condiciones establecidas en este aviso legal.</p><h3>3. Propiedad intelectual e industrial</h3><p>Todos los contenidos del sitio web (textos, imágenes, logotipos, diseño gráfico, código fuente) son titularidad de Arretxe Motos y Maquinaria Agricola S.L. o de sus licenciantes, y están protegidos por la legislación española e internacional sobre propiedad intelectual e industrial. Queda expresamente prohibida la reproducción, distribución o modificación sin autorización expresa.</p><h3>4. Exclusión de responsabilidad</h3><p>Arretxe Motos y Maquinaria Agricola S.L. no se responsabiliza de los daños derivados del uso del sitio web, de fallos técnicos o de la desactualización de la información publicada. Los contenidos pueden modificarse sin previo aviso.</p><h3>5. Legislación aplicable y jurisdicción</h3><p>Este aviso legal se rige por la legislación española. Para la resolución de cualquier controversia, las partes se someten a los juzgados y tribunales de Gipuzkoa, con renuncia expresa a cualquier otro fuero.</p></div>
     </div>
 </div>
 
@@ -1751,32 +1886,7 @@
 <div class="legal-modal-overlay" id="modal-privacidad" role="dialog" aria-modal="true" aria-label="Política de Privacidad">
     <div class="legal-modal">
         <button class="legal-modal-close" onclick="closeLegal('privacidad')" aria-label="Cerrar">&times;</button>
-        <h2>Política de Privacidad</h2>
-        <p><strong>Última actualización:</strong> marzo de 2026</p>
-        <h3>1. Responsable del tratamiento</h3>
-        <ul>
-            <li><strong>Identidad:</strong> Arretxe Motos y Maquinaria Agricola S.L.</li>
-            <li><strong>Dirección:</strong> Salvador Echeandia Kalea, 12, BJ 1, 20304 Irún, Gipuzkoa</li>
-            <li><strong>Email de contacto:</strong> motosarretxe@gmail.com</li>
-        </ul>
-        <h3>2. Datos que recogemos</h3>
-        <p>A través del formulario de contacto de este sitio web recogemos los siguientes datos personales:</p>
-        <ul>
-            <li>Nombre y apellidos</li>
-            <li>Dirección de correo electrónico</li>
-            <li>Número de teléfono (opcional)</li>
-            <li>Contenido del mensaje</li>
-        </ul>
-        <h3>3. Finalidad del tratamiento</h3>
-        <p>Los datos facilitados se utilizan exclusivamente para responder a su consulta o solicitud de información, y para mantener una comunicación comercial con usted si así lo desea.</p>
-        <h3>4. Base jurídica</h3>
-        <p>El tratamiento se realiza en base al consentimiento del interesado (art. 6.1.a RGPD), otorgado al enviar el formulario de contacto.</p>
-        <h3>5. Conservación de datos</h3>
-        <p>Los datos se conservarán durante el tiempo necesario para gestionar su consulta y, en su caso, durante los plazos legalmente exigidos.</p>
-        <h3>6. Destinatarios</h3>
-        <p>Los datos no serán cedidos a terceros, salvo obligación legal. El formulario de contacto emplea Google Workspace (Google Apps Script) para el envío de notificaciones internas.</p>
-        <h3>7. Sus derechos</h3>
-        <p>Puede ejercer los derechos de acceso, rectificación, supresión, limitación, portabilidad y oposición escribiendo a <strong>motosarretxe@gmail.com</strong>. También tiene derecho a presentar una reclamación ante la Agencia Española de Protección de Datos (www.aepd.es).</p>
+        <div data-i18n="legal.privacidad"><h2>Política de Privacidad</h2><p><strong>Última actualización:</strong> marzo de 2026</p><h3>1. Responsable del tratamiento</h3><ul><li><strong>Identidad:</strong> Arretxe Motos y Maquinaria Agricola S.L.</li><li><strong>Dirección:</strong> Salvador Echeandia Kalea, 12, BJ 1, 20304 Irún, Gipuzkoa</li><li><strong>Email de contacto:</strong> motosarretxe@gmail.com</li></ul><h3>2. Datos que recogemos</h3><p>A través del formulario de contacto de este sitio web recogemos los siguientes datos personales:</p><ul><li>Nombre y apellidos</li><li>Dirección de correo electrónico</li><li>Número de teléfono (opcional)</li><li>Contenido del mensaje</li></ul><h3>3. Finalidad del tratamiento</h3><p>Los datos facilitados se utilizan exclusivamente para responder a su consulta o solicitud de información, y para mantener una comunicación comercial con usted si así lo desea.</p><h3>4. Base jurídica</h3><p>El tratamiento se realiza en base al consentimiento del interesado (art. 6.1.a RGPD), otorgado al enviar el formulario de contacto.</p><h3>5. Conservación de datos</h3><p>Los datos se conservarán durante el tiempo necesario para gestionar su consulta y, en su caso, durante los plazos legalmente exigidos.</p><h3>6. Destinatarios</h3><p>Los datos no serán cedidos a terceros, salvo obligación legal. El formulario de contacto emplea Google Workspace (Google Apps Script) para el envío de notificaciones internas.</p><h3>7. Sus derechos</h3><p>Puede ejercer los derechos de acceso, rectificación, supresión, limitación, portabilidad y oposición escribiendo a <strong>motosarretxe@gmail.com</strong>. También tiene derecho a presentar una reclamación ante la Agencia Española de Protección de Datos (www.aepd.es).</p></div>
     </div>
 </div>
 
@@ -1784,27 +1894,7 @@
 <div class="legal-modal-overlay" id="modal-cookies" role="dialog" aria-modal="true" aria-label="Política de Cookies">
     <div class="legal-modal">
         <button class="legal-modal-close" onclick="closeLegal('cookies')" aria-label="Cerrar">&times;</button>
-        <h2>Política de Cookies</h2>
-        <p><strong>Última actualización:</strong> marzo de 2026</p>
-        <h3>1. ¿Qué son las cookies?</h3>
-        <p>Las cookies son pequeños ficheros de texto que se almacenan en su dispositivo cuando visita un sitio web. Permiten que el sitio recuerde sus preferencias y mejore su experiencia de navegación.</p>
-        <h3>2. Cookies que utilizamos</h3>
-        <p>Este sitio web utiliza únicamente cookies técnicas y de preferencia, necesarias para su correcto funcionamiento:</p>
-        <ul>
-            <li><strong>cookie_consent</strong> — Almacena su preferencia sobre el uso de cookies. Duración: 1 año. Tipo: propia, técnica.</li>
-            <li><strong>lang_pref</strong> — Recuerda el idioma seleccionado (ES/EU/EN/FR). Duración: sesión. Tipo: propia, preferencia.</li>
-        </ul>
-        <p>Este sitio web <strong>no utiliza cookies de seguimiento, analítica ni publicidad</strong> de terceros.</p>
-        <h3>3. Cómo gestionar las cookies</h3>
-        <p>Puede aceptar o rechazar el uso de cookies en el banner que aparece al visitar el sitio por primera vez. También puede configurar su navegador para bloquear o eliminar cookies en cualquier momento:</p>
-        <ul>
-            <li><strong>Chrome:</strong> Configuración &gt; Privacidad y seguridad &gt; Cookies</li>
-            <li><strong>Firefox:</strong> Opciones &gt; Privacidad y seguridad</li>
-            <li><strong>Safari:</strong> Preferencias &gt; Privacidad</li>
-            <li><strong>Edge:</strong> Configuración &gt; Privacidad, búsqueda y servicios</li>
-        </ul>
-        <h3>4. Más información</h3>
-        <p>Para más información sobre el tratamiento de sus datos, consulte nuestra <a href="#" onclick="closeLegal('cookies');openLegal('privacidad');return false;" style="color:var(--red);text-decoration:underline;">Política de Privacidad</a>.</p>
+        <div data-i18n="legal.cookies"><h2>Política de Cookies</h2><p><strong>Última actualización:</strong> marzo de 2026</p><h3>1. ¿Qué son las cookies?</h3><p>Las cookies son pequeños ficheros de texto que se almacenan en su dispositivo cuando visita un sitio web. Permiten que el sitio recuerde sus preferencias y mejore su experiencia de navegación.</p><h3>2. Cookies que utilizamos</h3><p>Este sitio web utiliza únicamente cookies técnicas y de preferencia, necesarias para su correcto funcionamiento:</p><ul><li><strong>cookie_consent</strong> — Almacena su preferencia sobre el uso de cookies. Duración: 1 año. Tipo: propia, técnica.</li><li><strong>lang_pref</strong> — Recuerda el idioma seleccionado (ES/EU/EN/FR). Duración: sesión. Tipo: propia, preferencia.</li></ul><p>Este sitio web <strong>no utiliza cookies de seguimiento, analítica ni publicidad</strong> de terceros.</p><h3>3. Cómo gestionar las cookies</h3><p>Puede aceptar o rechazar el uso de cookies en el banner que aparece al visitar el sitio por primera vez. También puede configurar su navegador para bloquear o eliminar cookies en cualquier momento:</p><ul><li><strong>Chrome:</strong> Configuración &gt; Privacidad y seguridad &gt; Cookies</li><li><strong>Firefox:</strong> Opciones &gt; Privacidad y seguridad</li><li><strong>Safari:</strong> Preferencias &gt; Privacidad</li><li><strong>Edge:</strong> Configuración &gt; Privacidad, búsqueda y servicios</li></ul><h3>4. Más información</h3><p>Para más información sobre el tratamiento de sus datos, consulte nuestra <a href='#' onclick='closeLegal(\"cookies\");openLegal(\"privacidad\");return false;' style='color:var(--red);text-decoration:underline;'>Política de Privacidad</a>.</p></div>
     </div>
 </div>
 
@@ -1852,11 +1942,11 @@
                 <a href="#resenas" data-i18n="nav.resenas">Reseñas</a>
                 <a href="#contacto" data-i18n="nav.contacto">Contacto</a>
             </nav>
-            <h4 style="margin-top:20px">Legal</h4>
+            <h4 style="margin-top:20px" data-i18n="footer.legal.title">Legal</h4>
             <nav class="footer-links">
-                <a href="#" onclick="openLegal('aviso');return false;">Aviso Legal</a>
-                <a href="#" onclick="openLegal('privacidad');return false;">Política de Privacidad</a>
-                <a href="#" onclick="openLegal('cookies');return false;">Política de Cookies</a>
+                <a href="#" onclick="openLegal('aviso');return false;" data-i18n="footer.legal.aviso">Aviso Legal</a>
+                <a href="#" onclick="openLegal('privacidad');return false;" data-i18n="footer.legal.privacidad">Política de Privacidad</a>
+                <a href="#" onclick="openLegal('cookies');return false;" data-i18n="footer.legal.cookies">Política de Cookies</a>
             </nav>
         </div>
         <div class="footer-col">
@@ -1882,9 +1972,9 @@
     <div class="footer-bottom">
         <p>&copy; 2026 Arretxe Motos y Maquinaria Agricola S.L. &mdash; <span data-i18n="footer.rights">Todos los derechos reservados</span></p>
         <p style="margin-top:8px; font-size:0.75rem;">
-            <a href="#" onclick="openLegal('aviso');return false;" style="color:#666;margin-right:14px;">Aviso Legal</a>
-            <a href="#" onclick="openLegal('privacidad');return false;" style="color:#666;margin-right:14px;">Política de Privacidad</a>
-            <a href="#" onclick="openLegal('cookies');return false;" style="color:#666;">Política de Cookies</a>
+            <a href="#" onclick="openLegal('aviso');return false;" style="color:#666;margin-right:14px;" data-i18n="footer.legal.aviso">Aviso Legal</a>
+            <a href="#" onclick="openLegal('privacidad');return false;" style="color:#666;margin-right:14px;" data-i18n="footer.legal.privacidad">Política de Privacidad</a>
+            <a href="#" onclick="openLegal('cookies');return false;" style="color:#666;" data-i18n="footer.legal.cookies">Política de Cookies</a>
         </p>
     </div>
 </footer>
@@ -1928,14 +2018,16 @@ const translations = {
         "services.subtitle": "Todo lo que necesitas para tu moto y maquinaria",
         "services.s1.title": "Reparaci\u00f3n y Mantenimiento",
         "services.s1.desc": "Revisiones, cambios de aceite, frenos, cadena y todo tipo de reparaciones mec\u00e1nicas.",
-        "services.s2.title": "Venta de Motos Honda",
-        "services.s2.desc": "Distribuidor oficial Honda. Amplio cat\u00e1logo de motos nuevas y asesoramiento personalizado.",
+        "services.s2.title": "Venta de Motos Honda y SYM",
+        "services.s2.desc": "Distribuidor oficial Honda y SYM. Amplio cat\u00e1logo de motos nuevas y asesoramiento personalizado.",
         "services.s4.title": "Cascos y Accesorios",
         "services.s4.desc": "Distribuidor LS2 y HJC. Amplia gama de cascos homologados y accesorios de seguridad.",
         "services.s5.title": "Recambios y Piezas",
         "services.s5.desc": "Piezas originales y compatibles para todo tipo de modelos. Servicio de pedido r\u00e1pido.",
         "services.s6.title": "Asesoramiento T\u00e9cnico",
         "services.s6.desc": "Consulta sin cita previa. Nuestros t\u00e9cnicos resuelven tus dudas con rapidez y profesionalidad.",
+        "services.s7.title": "Especialistas en Scooters",
+        "services.s7.desc": "Especialistas en scooters y ciclomotores. Servicio de neum\u00e1ticos, revisiones y puestas a punto para tu scooter.",
         "machinery.title": "Maquinaria <span>Oleo-Mac</span>",
         "machinery.subtitle": "Distribuidores oficiales en Irún y Gipuzkoa",
         "machinery.m1.desc": "Cortac\u00e9sped de tracci\u00f3n a las 4 ruedas",
@@ -1944,14 +2036,23 @@ const translations = {
         "machinery.m4.desc": "Biotrituradora para ramas y restos vegetales",
         "machinery.btn": "Consultar",
         "motos.title": "Algunas de nuestras <span>Motos Disponibles</span>",
-        "motos.subtitle": "Distribuidores oficiales Honda en Irún y Gipuzkoa \u2014 Consulta todo el cat\u00e1logo",
+        "motos.subtitle": "Distribuidores oficiales Honda y SYM en Irún y Gipuzkoa \u2014 Consulta todo el cat\u00e1logo",
         "motos.m1.desc": "Scooter premium 125cc, \u00e1gil y conectado para la ciudad",
         "motos.m2.desc": "Scooter GT 350cc, potencia y confort para ciudad y carretera",
         "motos.m3.desc": "Scooter urbano 125cc eficiente, ligero y muy econ\u00f3mico",
         "motos.m4.desc": "Versi\u00f3n Deluxe del PCX con equipamiento y acabados superiores",
         "motos.m5.desc": "Naked cl\u00e1sica 350cc de car\u00e1cter retro y gran presencia en carretera",
+        "motos.m6.desc": "Scooter adventure 350cc, vers\u00e1til para ciudad y aventura off-road",
+        "motos.m7.desc": "Naked urbana 125cc sencilla, fiable y perfecta para el d\u00eda a d\u00eda",
+        "motos.m8.desc": "Naked deportiva 125cc con estilo neo-sports caf\u00e9 y gran agilidad",
+        "motos.m9.desc": "Scooter compacto 110cc, econ\u00f3mico y muy manejable en ciudad",
+        "motos.m10.desc": "Scooter retro urbano 125cc, elegante y pr\u00e1ctico para la ciudad",
+        "motos.m11.desc": "Scooter moderno 125cc con dise\u00f1o elegante y gran autonom\u00eda",
+        "motos.m12.desc": "Scooter deportivo 125cc \u00e1gil y din\u00e1mico para moverse por la ciudad",
+        "motos.m13.desc": "Scooter cl\u00e1sico 125cc con acabados premium y gran comodidad",
+        "motos.m14.desc": "Scooter urbano 125cc c\u00f3modo, vers\u00e1til y de bajo consumo",
         "motos.btn": "Consultar",
-        "motos.note": "Estas son solo algunas de las motos disponibles. <a href=\"#contacto\" style=\"color:var(--red); font-weight:700;\">Cont\u00e1ctanos</a> para consultar todo el cat\u00e1logo Honda.",
+        "motos.note": "Estas son solo algunas de las motos disponibles. <a href=\"#contacto\" style=\"color:var(--red); font-weight:700;\">Cont\u00e1ctanos</a> para consultar todo el cat\u00e1logo Honda y SYM.",
         "gallery.title": "Nuestra <span>Galer\u00eda</span>",
         "gallery.subtitle": "Instalaciones, trabajos y productos",
         "reviews.title": "Lo que dicen <span>nuestros clientes</span>",
@@ -1982,7 +2083,18 @@ const translations = {
         "footer.nav.title": "Navegaci\u00f3n",
         "footer.contact.title": "Contacto",
         "footer.hours": "L-V: 9:00-13:00 / 15:30-19:30",
-        "footer.rights": "Todos los derechos reservados"
+        "footer.rights": "Todos los derechos reservados",
+        "motos.verTodas": "Ver todas",
+        "motos.verMenos": "Ver menos",
+        "cta.label": "Ll\u00e1manos ahora",
+        "cta.hours": "Lunes a Viernes \u00b7 9:00\u201313:00 / 15:30\u201319:30",
+        "footer.legal.title": "Legal",
+        "footer.legal.aviso": "Aviso Legal",
+        "footer.legal.privacidad": "Pol\u00edtica de Privacidad",
+        "footer.legal.cookies": "Pol\u00edtica de Cookies",
+        "legal.aviso": "<h2>Aviso Legal</h2><p><strong>\u00daltima actualizaci\u00f3n:</strong> marzo de 2026</p><h3>1. Datos identificativos</h3><p>En cumplimiento con el deber de informaci\u00f3n recogido en el art\u00edculo 10 de la Ley 34/2002, de Servicios de la Sociedad de la Informaci\u00f3n y del Comercio Electr\u00f3nico (LSSICE), se facilitan los siguientes datos:</p><ul><li><strong>Raz\u00f3n social:</strong> Arretxe Motos y Maquinaria Agricola S.L.</li><li><strong>Domicilio social:</strong> Salvador Echeandia Kalea, 12, BJ 1, 20304 Ir\u00fan, Gipuzkoa</li><li><strong>Tel\u00e9fono:</strong> 943 62 59 05</li><li><strong>Email:</strong> motosarretxe@gmail.com</li><li><strong>Actividad:</strong> Taller de reparaci\u00f3n y venta de motocicletas</li></ul><h3>2. Objeto y \u00e1mbito de aplicaci\u00f3n</h3><p>El presente Aviso Legal regula el acceso y uso del sitio web <strong>www.motosarretxe.com</strong>. El acceso implica la aceptaci\u00f3n plena de las condiciones establecidas.</p><h3>3. Propiedad intelectual e industrial</h3><p>Todos los contenidos del sitio web son titularidad de Arretxe Motos y Maquinaria Agricola S.L. o de sus licenciantes, protegidos por la legislaci\u00f3n espa\u00f1ola e internacional. Queda prohibida su reproducci\u00f3n sin autorizaci\u00f3n expresa.</p><h3>4. Exclusi\u00f3n de responsabilidad</h3><p>Arretxe Motos y Maquinaria Agricola S.L. no se responsabiliza de los da\u00f1os derivados del uso del sitio web o de la desactualizaci\u00f3n de la informaci\u00f3n publicada.</p><h3>5. Legislaci\u00f3n aplicable y jurisdicci\u00f3n</h3><p>Este aviso legal se rige por la legislaci\u00f3n espa\u00f1ola. Las partes se someten a los juzgados y tribunales de Gipuzkoa.</p>",
+        "legal.privacidad": "<h2>Pol\u00edtica de Privacidad</h2><p><strong>\u00daltima actualizaci\u00f3n:</strong> marzo de 2026</p><h3>1. Responsable del tratamiento</h3><ul><li><strong>Identidad:</strong> Arretxe Motos y Maquinaria Agricola S.L.</li><li><strong>Direcci\u00f3n:</strong> Salvador Echeandia Kalea, 12, BJ 1, 20304 Ir\u00fan, Gipuzkoa</li><li><strong>Email:</strong> motosarretxe@gmail.com</li></ul><h3>2. Datos que recogemos</h3><p>A trav\u00e9s del formulario de contacto recogemos:</p><ul><li>Nombre y apellidos</li><li>Direcci\u00f3n de correo electr\u00f3nico</li><li>N\u00famero de tel\u00e9fono (opcional)</li><li>Contenido del mensaje</li></ul><h3>3. Finalidad del tratamiento</h3><p>Los datos se utilizan exclusivamente para responder a su consulta y mantener comunicaci\u00f3n comercial si as\u00ed lo desea.</p><h3>4. Base jur\u00eddica</h3><p>El tratamiento se realiza en base al consentimiento del interesado (art. 6.1.a RGPD), otorgado al enviar el formulario.</p><h3>5. Conservaci\u00f3n de datos</h3><p>Los datos se conservar\u00e1n durante el tiempo necesario para gestionar su consulta y los plazos legalmente exigidos.</p><h3>6. Destinatarios</h3><p>Los datos no ser\u00e1n cedidos a terceros, salvo obligaci\u00f3n legal.</p><h3>7. Sus derechos</h3><p>Puede ejercer sus derechos de acceso, rectificaci\u00f3n, supresi\u00f3n y oposici\u00f3n escribiendo a <strong>motosarretxe@gmail.com</strong> o ante la Agencia Espa\u00f1ola de Protecci\u00f3n de Datos (www.aepd.es).</p>",
+        "legal.cookies": "<h2>Pol\u00edtica de Cookies</h2><p><strong>\u00daltima actualizaci\u00f3n:</strong> marzo de 2026</p><h3>1. \u00bfQu\u00e9 son las cookies?</h3><p>Las cookies son peque\u00f1os ficheros de texto que se almacenan en su dispositivo cuando visita un sitio web. Permiten que el sitio recuerde sus preferencias y mejore su experiencia.</p><h3>2. Cookies que utilizamos</h3><p>Este sitio web utiliza \u00fanicamente cookies t\u00e9cnicas y de preferencia:</p><ul><li><strong>cookie_consent</strong> \u2014 Almacena su preferencia sobre cookies. Duraci\u00f3n: 1 a\u00f1o.</li><li><strong>lang_pref</strong> \u2014 Recuerda el idioma seleccionado. Duraci\u00f3n: sesi\u00f3n.</li></ul><p>Este sitio <strong>no utiliza cookies de seguimiento ni publicidad</strong> de terceros.</p><h3>3. C\u00f3mo gestionar las cookies</h3><ul><li><strong>Chrome:</strong> Configuraci\u00f3n &gt; Privacidad y seguridad</li><li><strong>Firefox:</strong> Opciones &gt; Privacidad y seguridad</li><li><strong>Safari:</strong> Preferencias &gt; Privacidad</li><li><strong>Edge:</strong> Configuraci\u00f3n &gt; Privacidad y servicios</li></ul><h3>4. M\u00e1s informaci\u00f3n</h3><p>Consulte nuestra <a href='#' onclick='closeLegal(\"cookies\");openLegal(\"privacidad\");return false;' style='color:var(--red);text-decoration:underline;'>Pol\u00edtica de Privacidad</a>.</p>"
     },
     eu: {
         "topbar.hours": "Al-Or 9:00-13:00 / 15:30-19:30 \u2022 Larun-Ig Itxita",
@@ -2026,6 +2138,8 @@ const translations = {
         "services.s5.desc": "Modelo guztietarako pieza originalak eta bateragarriak. Eskaera azkarreko zerbitzua.",
         "services.s6.title": "Aholkularitza Teknikoa",
         "services.s6.desc": "Kontsulta hitzordurik gabe. Gure teknikariek zure zalantzak azkar eta profesionaltasunez ebazten dituzte.",
+        "services.s7.title": "Scooter Espezialistak",
+        "services.s7.desc": "Scooter eta ziklomotorretan espezialistak. Pneumatikoen zerbitzua, berrikuspenak eta zure scooteraren puesta a punto.",
         "machinery.title": "Oleo-Mac <span>Makineria</span>",
         "machinery.subtitle": "Irún eta Gipuzkoan banatzaile ofizialak",
         "machinery.m1.desc": "4 gurpileko trakziodun belar mozgailua",
@@ -2034,14 +2148,23 @@ const translations = {
         "machinery.m4.desc": "Adarrak eta landare hondakinak xehatzeko biotxikitzailea",
         "machinery.btn": "Kontsultatu",
         "motos.title": "Gure <span>Moto Batzuk</span>",
-        "motos.subtitle": "Honda banatzaile ofizialak Irunen eta Gipuzkoan \u2014 Kontsultatu katalogo osoa",
+        "motos.subtitle": "Honda eta SYM banatzaile ofizialak Irunen eta Gipuzkoan \u2014 Kontsultatu katalogo osoa",
         "motos.m1.desc": "125cc scooter premium, arina eta hirian erabiltzeko egokia",
         "motos.m2.desc": "GT 350cc scooter, potentzia eta erosotasuna hiri eta errepiderako",
         "motos.m3.desc": "Hiri scooter 125cc eraginkorra, arina eta oso ekonomikoa",
         "motos.m4.desc": "PCXren Deluxe bertsioa, ekipamendu eta akabera hoberekin",
         "motos.m5.desc": "Naked klasikoa 350cc, itxura retroarekin eta errepideko presentzia handiarekin",
+        "motos.m6.desc": "Adventure scooter 350cc, hiria eta off-road abenturarako moldagarria",
+        "motos.m7.desc": "Naked hiritarra 125cc, sinplea, fidagarria eta egunerokoa egiteko",
+        "motos.m8.desc": "Naked kirolaria 125cc neo-sports caf\u00e9 estiloarekin eta arintasun handiarekin",
+        "motos.m9.desc": "Scooter trinkoa 110cc, ekonomikoa eta hirian erraz gidatzekoa",
+        "motos.m10.desc": "Scooter retro hiritarra 125cc, dotorea eta praktikoa",
+        "motos.m11.desc": "Scooter modernoa 125cc diseinu dotorea eta autonomia handia",
+        "motos.m12.desc": "Scooter kirolaria 125cc hirian mugitzeko arina eta dinamikoa",
+        "motos.m13.desc": "Scooter klasikoa 125cc, premium bukaerekin eta erosotasun handiarekin",
+        "motos.m14.desc": "Scooter hiritarra 125cc erosoa, moldagarria eta kontsumo txikikoa",
         "motos.btn": "Kontsultatu",
-        "motos.note": "Hauek eskuragarri ditugun moto batzuk baino ez dira. <a href=\"#contacto\" style=\"color:var(--red); font-weight:700;\">Jarri gurekin harremanetan</a> Honda katalogo osoa ikusteko.",
+        "motos.note": "Hauek eskuragarri ditugun moto batzuk baino ez dira. <a href=\"#contacto\" style=\"color:var(--red); font-weight:700;\">Jarri gurekin harremanetan</a> Honda eta SYM katalogo osoa ikusteko.",
         "gallery.title": "Gure <span>Galeria</span>",
         "gallery.subtitle": "Instalazioak, lanak eta produktuak",
         "reviews.title": "Gure bezeroek <span>diotena</span>",
@@ -2072,7 +2195,18 @@ const translations = {
         "footer.nav.title": "Nabigazioa",
         "footer.contact.title": "Kontaktua",
         "footer.hours": "Al-Or: 9:00-13:00 / 15:30-19:30",
-        "footer.rights": "Eskubide guztiak erreserbatuta"
+        "footer.rights": "Eskubide guztiak erreserbatuta",
+        "motos.verTodas": "Denak ikusi",
+        "motos.verMenos": "Gutxiago ikusi",
+        "cta.label": "Deitu iezaguzu orain",
+        "cta.hours": "Astelehenetik Ostiralera \u00b7 9:00\u201313:00 / 15:30\u201319:30",
+        "footer.legal.title": "Legala",
+        "footer.legal.aviso": "Lege-oharra",
+        "footer.legal.privacidad": "Pribatutasun Politika",
+        "footer.legal.cookies": "Cookie Politika",
+        "legal.aviso": "<h2>Lege-oharra</h2><p><strong>Azken eguneratzea:</strong> 2026ko martxoa</p><h3>1. Datu identifikatzaileak</h3><p>34/2002 Legearen 10. artikuluaren arabera, honako datuak ematen dira:</p><ul><li><strong>Sozietate-izena:</strong> Arretxe Motos y Maquinaria Agricola S.L.</li><li><strong>Helbidea:</strong> Salvador Echeandia Kalea, 12, BJ 1, 20304 Irun, Gipuzkoa</li><li><strong>Telefonoa:</strong> 943 62 59 05</li><li><strong>Email:</strong> motosarretxe@gmail.com</li><li><strong>Jarduera:</strong> Motoen konponketa eta salmenta</li></ul><h3>2. Xedea eta aplikazio-eremua</h3><p>Lege-ohar honek <strong>www.motosarretxe.com</strong> webgunearen sarbidea eta erabilera arautzen du. Webgunera sartzeak baldintza hauek osorik onartzen ditu.</p><h3>3. Jabetza intelektuala</h3><p>Webguneko eduki guztiak Arretxe Motos y Maquinaria Agricola S.L.renak dira edo bere lizentziatzaileena, eta espainiar nahiz nazioarteko legediaren babespean daude. Berregitea debekatuta dago baimendu gabe.</p><h3>4. Erantzukizun-salbuespena</h3><p>Arretxe Motos y Maquinaria Agricola S.L. ez da webgunearen erabileraren ondoriozko kalteen erantzule.</p><h3>5. Legeria aplikagarria eta jurisdikzioa</h3><p>Lege-ohar hau espainiar legedian oinarritzen da. Gatazkak Gipuzkoako epaitegietara joko du.</p>",
+        "legal.privacidad": "<h2>Pribatutasun Politika</h2><p><strong>Azken eguneratzea:</strong> 2026ko martxoa</p><h3>1. Tratamenduaren arduraduna</h3><ul><li><strong>Nortasuna:</strong> Arretxe Motos y Maquinaria Agricola S.L.</li><li><strong>Helbidea:</strong> Salvador Echeandia Kalea, 12, BJ 1, 20304 Irun, Gipuzkoa</li><li><strong>Email:</strong> motosarretxe@gmail.com</li></ul><h3>2. Biltzen ditugun datuak</h3><p>Kontaktu-inprimakiraren bidez honako datu pertsonalak biltzen ditugu:</p><ul><li>Izena eta abizenak</li><li>Helbide elektronikoa</li><li>Telefono-zenbakia (aukerakoa)</li><li>Mezuaren edukia</li></ul><h3>3. Tratamenduaren xedea</h3><p>Datuak esklusiboki zure kontsultari erantzuteko eta, nahi izanez gero, komunikazio komertzialerako erabiltzen dira.</p><h3>4. Oinarri juridikoa</h3><p>Tratamendua interesdunaren baimenean oinarritzen da (DBEO 6.1.a art.), inprimakia bidaltzean emana.</p><h3>5. Datuen gordetzea</h3><p>Datuak kontsulta kudeatzeko beharrezkoa den denboran gordeko dira.</p><h3>6. Hartzaileak</h3><p>Datuak ez dira hirugarrenei emango, legezko betebehar bat izan ezik.</p><h3>7. Zure eskubideak</h3><p>Sarbide, zuzenketa, ezabatze eta aurkaratzeko eskubideak egikaritu ditzakezu <strong>motosarretxe@gmail.com</strong> helbidera idatziz.</p>",
+        "legal.cookies": "<h2>Cookie Politika</h2><p><strong>Azken eguneratzea:</strong> 2026ko martxoa</p><h3>1. Zer dira cookieak?</h3><p>Cookieak testu-fitxategi txikiak dira, webgune bat bisitatzean zure gailuan gordetzen direnak, eta guneari zure lehentasunak gogoratzeko aukera ematen diote.</p><h3>2. Erabiltzen ditugun cookieak</h3><p>Webgune honek cookie teknikoak eta lehentasun-cookieak bakarrik erabiltzen ditu:</p><ul><li><strong>cookie_consent</strong> \u2014 Cookiei buruzko zure lehentasuna gordetzen du. Iraupena: 1 urte.</li><li><strong>lang_pref</strong> \u2014 Hautatutako hizkuntza gogoratzen du. Iraupena: saioa.</li></ul><p>Webgune honek <strong>ez ditu hirugarrenen jarraipena edo publizitate cookieak</strong> erabiltzen.</p><h3>3. Cookieak nola kudeatu</h3><ul><li><strong>Chrome:</strong> Ezarpenak &gt; Pribatutasuna eta segurtasuna</li><li><strong>Firefox:</strong> Aukerak &gt; Pribatutasuna eta segurtasuna</li><li><strong>Safari:</strong> Hobespenak &gt; Pribatutasuna</li><li><strong>Edge:</strong> Ezarpenak &gt; Pribatutasuna eta zerbitzuak</li></ul><h3>4. Informazio gehiago</h3><p>Ikusi gure <a href='#' onclick='closeLegal(\"cookies\");openLegal(\"privacidad\");return false;' style='color:var(--red);text-decoration:underline;'>Pribatutasun Politika</a>.</p>"
     },
     en: {
         "topbar.hours": "Mon-Fri 9:00-13:00 / 15:30-19:30 \u2022 Sat-Sun Closed",
@@ -2116,6 +2250,8 @@ const translations = {
         "services.s5.desc": "Original and compatible parts for all models. Fast order service.",
         "services.s6.title": "Technical Advice",
         "services.s6.desc": "No appointment needed. Our technicians answer your questions quickly and professionally.",
+        "services.s7.title": "Scooter Specialists",
+        "services.s7.desc": "Specialists in scooters and mopeds. Tyre service, inspections and tune-ups for your scooter.",
         "machinery.title": "Oleo-Mac <span>Machinery</span>",
         "machinery.subtitle": "Official distributors in Irún and Gipuzkoa",
         "machinery.m1.desc": "4-wheel drive lawnmower",
@@ -2124,14 +2260,23 @@ const translations = {
         "machinery.m4.desc": "Biotrituradora for branches and plant waste",
         "machinery.btn": "Enquire",
         "motos.title": "Some of our <span>Available Bikes</span>",
-        "motos.subtitle": "Official Honda distributors in Irún and Gipuzkoa \u2014 Ask for the full catalogue",
+        "motos.subtitle": "Official Honda and SYM distributors in Irún and Gipuzkoa \u2014 Ask for the full catalogue",
         "motos.m1.desc": "Premium 125cc scooter, agile and connected for the city",
         "motos.m2.desc": "GT 350cc scooter, power and comfort for city and road",
         "motos.m3.desc": "Urban 125cc scooter, efficient, light and very economical",
         "motos.m4.desc": "Deluxe version of the PCX with superior equipment and finishes",
         "motos.m5.desc": "Classic naked 350cc with retro character and strong road presence",
+        "motos.m6.desc": "Adventure scooter 350cc, versatile for city and off-road riding",
+        "motos.m7.desc": "Urban naked 125cc, simple, reliable and perfect for everyday use",
+        "motos.m8.desc": "Sporty naked 125cc with neo-sports caf\u00e9 style and great agility",
+        "motos.m9.desc": "Compact 110cc scooter, economical and easy to handle in the city",
+        "motos.m10.desc": "Retro urban scooter 125cc, elegant and practical for city riding",
+        "motos.m11.desc": "Modern 125cc scooter with elegant design and great range",
+        "motos.m12.desc": "Sporty 125cc scooter, agile and dynamic for city commuting",
+        "motos.m13.desc": "Classic 125cc scooter with premium finishes and great comfort",
+        "motos.m14.desc": "Urban 125cc scooter, comfortable, versatile and low consumption",
         "motos.btn": "Enquire",
-        "motos.note": "These are just some of the bikes available. <a href=\"#contacto\" style=\"color:var(--red); font-weight:700;\">Contact us</a> to see the full Honda catalogue.",
+        "motos.note": "These are just some of the bikes available. <a href=\"#contacto\" style=\"color:var(--red); font-weight:700;\">Contact us</a> to see the full Honda and SYM catalogue.",
         "gallery.title": "Our <span>Gallery</span>",
         "gallery.subtitle": "Facilities, work and products",
         "reviews.title": "What our <span>customers say</span>",
@@ -2162,7 +2307,18 @@ const translations = {
         "footer.nav.title": "Navigation",
         "footer.contact.title": "Contact",
         "footer.hours": "Mon-Fri: 9:00-13:00 / 15:30-19:30",
-        "footer.rights": "All rights reserved"
+        "footer.rights": "All rights reserved",
+        "motos.verTodas": "See all",
+        "motos.verMenos": "See less",
+        "cta.label": "Call us now",
+        "cta.hours": "Monday to Friday \u00b7 9:00\u201313:00 / 15:30\u201319:30",
+        "footer.legal.title": "Legal",
+        "footer.legal.aviso": "Legal Notice",
+        "footer.legal.privacidad": "Privacy Policy",
+        "footer.legal.cookies": "Cookie Policy",
+        "legal.aviso": "<h2>Legal Notice</h2><p><strong>Last updated:</strong> March 2026</p><h3>1. Company details</h3><p>In compliance with Spanish Law 34/2002 on Information Society Services, the following details are provided:</p><ul><li><strong>Company name:</strong> Arretxe Motos y Maquinaria Agricola S.L.</li><li><strong>Address:</strong> Salvador Echeandia Kalea, 12, BJ 1, 20304 Ir\u00fan, Gipuzkoa, Spain</li><li><strong>Phone:</strong> 943 62 59 05</li><li><strong>Email:</strong> motosarretxe@gmail.com</li><li><strong>Activity:</strong> Motorcycle repair and sales workshop</li></ul><h3>2. Scope</h3><p>This Legal Notice governs access to and use of <strong>www.motosarretxe.com</strong>. Accessing this website implies full acceptance of these terms.</p><h3>3. Intellectual property</h3><p>All website content is owned by Arretxe Motos y Maquinaria Agricola S.L. or its licensors, protected under Spanish and international law. Reproduction without express authorisation is strictly prohibited.</p><h3>4. Disclaimer</h3><p>Arretxe Motos y Maquinaria Agricola S.L. is not liable for damages arising from website use or outdated information.</p><h3>5. Applicable law and jurisdiction</h3><p>This notice is governed by Spanish law. Any disputes shall be submitted to the courts of Gipuzkoa.</p>",
+        "legal.privacidad": "<h2>Privacy Policy</h2><p><strong>Last updated:</strong> March 2026</p><h3>1. Data controller</h3><ul><li><strong>Identity:</strong> Arretxe Motos y Maquinaria Agricola S.L.</li><li><strong>Address:</strong> Salvador Echeandia Kalea, 12, BJ 1, 20304 Ir\u00fan, Gipuzkoa, Spain</li><li><strong>Email:</strong> motosarretxe@gmail.com</li></ul><h3>2. Data we collect</h3><p>Through our contact form we collect the following personal data:</p><ul><li>Full name</li><li>Email address</li><li>Phone number (optional)</li><li>Message content</li></ul><h3>3. Purpose of processing</h3><p>Data is used exclusively to respond to your enquiry and, if you wish, to maintain commercial communication.</p><h3>4. Legal basis</h3><p>Processing is based on the data subject's consent (Art. 6.1.a GDPR), given when submitting the contact form.</p><h3>5. Data retention</h3><p>Data will be retained for as long as necessary to handle your enquiry and as required by law.</p><h3>6. Recipients</h3><p>Data will not be shared with third parties except where legally required.</p><h3>7. Your rights</h3><p>You may exercise your rights of access, rectification, erasure and objection by writing to <strong>motosarretxe@gmail.com</strong> or by contacting the Spanish Data Protection Agency (www.aepd.es).</p>",
+        "legal.cookies": "<h2>Cookie Policy</h2><p><strong>Last updated:</strong> March 2026</p><h3>1. What are cookies?</h3><p>Cookies are small text files stored on your device when you visit a website. They allow the site to remember your preferences and improve your browsing experience.</p><h3>2. Cookies we use</h3><p>This website only uses technical and preference cookies:</p><ul><li><strong>cookie_consent</strong> \u2014 Stores your cookie preference. Duration: 1 year.</li><li><strong>lang_pref</strong> \u2014 Remembers your selected language. Duration: session.</li></ul><p>This website <strong>does not use tracking, analytics or advertising cookies</strong> from third parties.</p><h3>3. Managing cookies</h3><ul><li><strong>Chrome:</strong> Settings &gt; Privacy and security &gt; Cookies</li><li><strong>Firefox:</strong> Options &gt; Privacy and security</li><li><strong>Safari:</strong> Preferences &gt; Privacy</li><li><strong>Edge:</strong> Settings &gt; Privacy, search and services</li></ul><h3>4. More information</h3><p>See our <a href='#' onclick='closeLegal(\"cookies\");openLegal(\"privacidad\");return false;' style='color:var(--red);text-decoration:underline;'>Privacy Policy</a>.</p>"
     },
     fr: {
         "topbar.hours": "Lun-Ven 9h-13h / 15h30-19h30 \u2022 Sam-Dim Ferm\u00e9",
@@ -2206,6 +2362,8 @@ const translations = {
         "services.s5.desc": "Pi\u00e8ces d\u2019origine et compatibles pour tous les mod\u00e8les. Service de commande rapide.",
         "services.s6.title": "Conseil Technique",
         "services.s6.desc": "Consultation sans rendez-vous. Nos techniciens r\u00e9pondent \u00e0 vos questions rapidement.",
+        "services.s7.title": "Sp\u00e9cialistes Scooters",
+        "services.s7.desc": "Sp\u00e9cialistes en scooters et cyclomoteurs. Service de pneumatiques, r\u00e9visions et mises au point pour votre scooter.",
         "machinery.title": "Machinerie <span>Oleo-Mac</span>",
         "machinery.subtitle": "Distributeurs officiels \u00e0 Irún et en Gipuzkoa",
         "machinery.m1.desc": "Tondeuse \u00e0 traction 4 roues",
@@ -2214,14 +2372,23 @@ const translations = {
         "machinery.m4.desc": "Biotriturateur pour branches et d\u00e9chets v\u00e9g\u00e9taux",
         "machinery.btn": "Renseignements",
         "motos.title": "Quelques-unes de nos <span>Motos Disponibles</span>",
-        "motos.subtitle": "Distributeurs officiels Honda \u00e0 Irún et en Gipuzkoa \u2014 Consultez tout le catalogue",
+        "motos.subtitle": "Distributeurs officiels Honda et SYM \u00e0 Irún et en Gipuzkoa \u2014 Consultez tout le catalogue",
         "motos.m1.desc": "Scooter premium 125cc, agile et connect\u00e9 pour la ville",
         "motos.m2.desc": "Scooter GT 350cc, puissance et confort pour la ville et la route",
         "motos.m3.desc": "Scooter urbain 125cc efficace, l\u00e9ger et tr\u00e8s \u00e9conomique",
         "motos.m4.desc": "Version Deluxe du PCX avec \u00e9quipement et finitions sup\u00e9rieurs",
         "motos.m5.desc": "Naked classique 350cc au caract\u00e8re r\u00e9tro et grande pr\u00e9sence sur route",
+        "motos.m6.desc": "Scooter adventure 350cc, polyvalent pour la ville et le tout-terrain",
+        "motos.m7.desc": "Naked urbain 125cc, simple, fiable et parfait pour le quotidien",
+        "motos.m8.desc": "Naked sportif 125cc au style neo-sports caf\u00e9 et grande agilit\u00e9",
+        "motos.m9.desc": "Scooter compact 110cc, \u00e9conomique et tr\u00e8s maniable en ville",
+        "motos.m10.desc": "Scooter r\u00e9tro urbain 125cc, \u00e9l\u00e9gant et pratique pour la ville",
+        "motos.m11.desc": "Scooter moderne 125cc au design \u00e9l\u00e9gant et grande autonomie",
+        "motos.m12.desc": "Scooter sportif 125cc agile et dynamique pour se d\u00e9placer en ville",
+        "motos.m13.desc": "Scooter classique 125cc avec finitions premium et grand confort",
+        "motos.m14.desc": "Scooter urbain 125cc confortable, polyvalent et \u00e0 faible consommation",
         "motos.btn": "Renseignements",
-        "motos.note": "Ce ne sont que quelques-unes des motos disponibles. <a href=\"#contacto\" style=\"color:var(--red); font-weight:700;\">Contactez-nous</a> pour consulter tout le catalogue Honda.",
+        "motos.note": "Ce ne sont que quelques-unes des motos disponibles. <a href=\"#contacto\" style=\"color:var(--red); font-weight:700;\">Contactez-nous</a> pour consulter tout le catalogue Honda et SYM.",
         "gallery.title": "Notre <span>Galerie</span>",
         "gallery.subtitle": "Installations, travaux et produits",
         "reviews.title": "Ce que disent <span>nos clients</span>",
@@ -2252,7 +2419,18 @@ const translations = {
         "footer.nav.title": "Navigation",
         "footer.contact.title": "Contact",
         "footer.hours": "Lun-Ven: 9h-13h / 15h30-19h30",
-        "footer.rights": "Tous droits r\u00e9serv\u00e9s"
+        "footer.rights": "Tous droits r\u00e9serv\u00e9s",
+        "motos.verTodas": "Voir tout",
+        "motos.verMenos": "Voir moins",
+        "cta.label": "Appelez-nous maintenant",
+        "cta.hours": "Lundi au Vendredi \u00b7 9h00\u201313h00 / 15h30\u201319h30",
+        "footer.legal.title": "Mentions l\u00e9gales",
+        "footer.legal.aviso": "Mentions L\u00e9gales",
+        "footer.legal.privacidad": "Politique de Confidentialit\u00e9",
+        "footer.legal.cookies": "Politique de Cookies",
+        "legal.aviso": "<h2>Mentions L\u00e9gales</h2><p><strong>Derni\u00e8re mise \u00e0 jour:</strong> mars 2026</p><h3>1. Informations l\u00e9gales</h3><p>Conform\u00e9ment \u00e0 la loi espagnole 34/2002 sur les services de la soci\u00e9t\u00e9 de l'information, voici les informations obligatoires:</p><ul><li><strong>Raison sociale:</strong> Arretxe Motos y Maquinaria Agricola S.L.</li><li><strong>Adresse:</strong> Salvador Echeandia Kalea, 12, BJ 1, 20304 Ir\u00fan, Gipuzkoa, Espagne</li><li><strong>T\u00e9l\u00e9phone:</strong> 943 62 59 05</li><li><strong>Email:</strong> motosarretxe@gmail.com</li><li><strong>Activit\u00e9:</strong> Atelier de r\u00e9paration et vente de motos</li></ul><h3>2. Objet et champ d'application</h3><p>Ces mentions l\u00e9gales r\u00e9gissent l'acc\u00e8s et l'utilisation de <strong>www.motosarretxe.com</strong>. L'acc\u00e8s au site implique l'acceptation enti\u00e8re de ces conditions.</p><h3>3. Propri\u00e9t\u00e9 intellectuelle</h3><p>Tous les contenus du site sont la propri\u00e9t\u00e9 de Arretxe Motos y Maquinaria Agricola S.L. ou de ses conc\u00e9dants, prot\u00e9g\u00e9s par la loi espagnole et internationale. La reproduction sans autorisation est interdite.</p><h3>4. Limitation de responsabilit\u00e9</h3><p>Arretxe Motos y Maquinaria Agricola S.L. ne saurait \u00eatre tenu responsable des dommages r\u00e9sultant de l'utilisation du site.</p><h3>5. Droit applicable et juridiction</h3><p>Ces mentions sont r\u00e9gies par le droit espagnol. Tout litige sera soumis aux tribunaux de Gipuzkoa.</p>",
+        "legal.privacidad": "<h2>Politique de Confidentialit\u00e9</h2><p><strong>Derni\u00e8re mise \u00e0 jour:</strong> mars 2026</p><h3>1. Responsable du traitement</h3><ul><li><strong>Identit\u00e9:</strong> Arretxe Motos y Maquinaria Agricola S.L.</li><li><strong>Adresse:</strong> Salvador Echeandia Kalea, 12, BJ 1, 20304 Ir\u00fan, Gipuzkoa, Espagne</li><li><strong>Email:</strong> motosarretxe@gmail.com</li></ul><h3>2. Donn\u00e9es collect\u00e9es</h3><p>Via notre formulaire de contact nous collectons:</p><ul><li>Nom et pr\u00e9nom</li><li>Adresse e-mail</li><li>Num\u00e9ro de t\u00e9l\u00e9phone (facultatif)</li><li>Contenu du message</li></ul><h3>3. Finalit\u00e9 du traitement</h3><p>Les donn\u00e9es sont utilis\u00e9es exclusivement pour r\u00e9pondre \u00e0 votre demande et maintenir une communication commerciale si vous le souhaitez.</p><h3>4. Base juridique</h3><p>Le traitement est bas\u00e9 sur le consentement de l'int\u00e9ress\u00e9 (art. 6.1.a RGPD), donn\u00e9 lors de l'envoi du formulaire.</p><h3>5. Conservation des donn\u00e9es</h3><p>Les donn\u00e9es seront conserv\u00e9es le temps n\u00e9cessaire pour traiter votre demande.</p><h3>6. Destinataires</h3><p>Les donn\u00e9es ne seront pas communiqu\u00e9es \u00e0 des tiers, sauf obligation l\u00e9gale.</p><h3>7. Vos droits</h3><p>Vous pouvez exercer vos droits d'acc\u00e8s, rectification, suppression et opposition en \u00e9crivant \u00e0 <strong>motosarretxe@gmail.com</strong> ou aupr\u00e8s de l'Agence espagnole de protection des donn\u00e9es (www.aepd.es).</p>",
+        "legal.cookies": "<h2>Politique de Cookies</h2><p><strong>Derni\u00e8re mise \u00e0 jour:</strong> mars 2026</p><h3>1. Que sont les cookies?</h3><p>Les cookies sont de petits fichiers texte stock\u00e9s sur votre appareil lorsque vous visitez un site web. Ils permettent au site de m\u00e9moriser vos pr\u00e9f\u00e9rences.</p><h3>2. Cookies utilis\u00e9s</h3><p>Ce site utilise uniquement des cookies techniques et de pr\u00e9f\u00e9rence:</p><ul><li><strong>cookie_consent</strong> \u2014 M\u00e9morise votre pr\u00e9f\u00e9rence concernant les cookies. Dur\u00e9e: 1 an.</li><li><strong>lang_pref</strong> \u2014 M\u00e9morise la langue s\u00e9lectionn\u00e9e. Dur\u00e9e: session.</li></ul><p>Ce site <strong>n'utilise pas de cookies de suivi ni de publicit\u00e9</strong> tiers.</p><h3>3. G\u00e9rer les cookies</h3><ul><li><strong>Chrome:</strong> Param\u00e8tres &gt; Confidentialit\u00e9 et s\u00e9curit\u00e9</li><li><strong>Firefox:</strong> Options &gt; Vie priv\u00e9e et s\u00e9curit\u00e9</li><li><strong>Safari:</strong> Pr\u00e9f\u00e9rences &gt; Confidentialit\u00e9</li><li><strong>Edge:</strong> Param\u00e8tres &gt; Confidentialit\u00e9 et services</li></ul><h3>4. Plus d'informations</h3><p>Consultez notre <a href='#' onclick='closeLegal(\"cookies\");openLegal(\"privacidad\");return false;' style='color:var(--red);text-decoration:underline;'>Politique de Confidentialit\u00e9</a>.</p>"
     }
 };
 
@@ -2480,6 +2658,24 @@ function acceptCookies() {
 function rejectCookies() {
     localStorage.setItem('cookie_consent', 'rejected');
     document.getElementById('cookieBanner').classList.remove('show');
+}
+
+/* ===== FAVICON DARK/LIGHT MODE ===== */
+(function() {
+    function updateFavicon(dark) {
+        document.getElementById('favicon').href = dark ? 'LOGO-FAVICON-WHITE.png' : 'LOGO-FAVICON.png';
+    }
+    const mq = window.matchMedia('(prefers-color-scheme: dark)');
+    updateFavicon(mq.matches);
+    mq.addEventListener('change', e => updateFavicon(e.matches));
+})();
+
+/* ===== MOBILE SHOW MORE / LESS ===== */
+function toggleGrid(gridId, btn) {
+    const grid = document.getElementById(gridId);
+    const expanded = grid.classList.toggle('expanded');
+    const t = translations[currentLang] || translations['es'];
+    btn.textContent = expanded ? (t['motos.verMenos'] || 'Ver menos') : (t['motos.verTodas'] || 'Ver todas');
 }
 </script>
 </body>
