@@ -591,12 +591,46 @@
             text-align: center;
             margin-bottom: 48px;
         }
-        .services-grid {
+        .services-body {
             max-width: 1100px;
             margin: 0 auto;
+            position: relative;
+        }
+        .services-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 28px;
+        }
+        @keyframes floatScooter {
+            0%, 100% { transform: rotate(16deg) translateY(0); }
+            50% { transform: rotate(16deg) translateY(-10px); }
+        }
+        @keyframes fadeInScooter {
+            from { opacity: 0; transform: rotate(16deg) translateX(60px); }
+            to { opacity: 1; transform: rotate(16deg) translateX(0); }
+        }
+        .services-side-img {
+            position: absolute;
+            right: -150px;
+            top: -150px;
+            width: 240px;
+            pointer-events: none;
+            z-index: 2;
+            animation: fadeInScooter 0.8s ease-out both, floatScooter 4s ease-in-out 0.8s infinite;
+            filter: drop-shadow(4px 8px 16px rgba(0,0,0,0.25));
+        }
+        .services-side-img img {
+            width: 100%;
+            display: block;
+        }
+        @media (max-width: 1350px) {
+            .services-side-img { right: -60px; width: 200px; top: -150px; }
+        }
+        @media (max-width: 1150px) {
+            .services-side-img { right: -10px; width: 160px; top: -150px; }
+        }
+        @media (max-width: 900px) {
+            .services-side-img { display: none; }
         }
         .service-card {
             background: #fff;
@@ -1437,15 +1471,19 @@
     <div class="slider">
         <div class="slide-track">
             <div class="slide"><img src="honda-motorcycles-logo-11.png" alt="Honda"></div>
+            <div class="slide"><img src="logo-motos-sym-rojo.webp" alt="SYM"></div>
             <div class="slide"><img src="ls2-logo-png_seeklogo-224638.png" alt="LS2"></div>
             <div class="slide"><img src="hjc-logo-png-transparent.png" alt="HJC"></div>
-            <div class="slide"><img src="18-Photoroom.png" alt="Nava"></div>
-            <div class="slide"><img src="logo-motos-sym-rojo.webp" alt="SYM"></div>
+            <div class="slide"><img src="Pirelli-logo.png" alt="Pirelli"></div>
+            <div class="slide"><img src="dunlop-logo-2200x500.png" alt="Dunlop"></div>
+            <div class="slide"><img src="Neumaticos-Michelin.png" alt="Michelin"></div>
             <div class="slide"><img src="honda-motorcycles-logo-11.png" alt="Honda"></div>
+            <div class="slide"><img src="logo-motos-sym-rojo.webp" alt="SYM"></div>
             <div class="slide"><img src="ls2-logo-png_seeklogo-224638.png" alt="LS2"></div>
             <div class="slide"><img src="hjc-logo-png-transparent.png" alt="HJC"></div>
-            <div class="slide"><img src="18-Photoroom.png" alt="Nava"></div>
-            <div class="slide"><img src="logo-motos-sym-rojo.webp" alt="SYM"></div>
+            <div class="slide"><img src="Pirelli-logo.png" alt="Pirelli"></div>
+            <div class="slide"><img src="dunlop-logo-2200x500.png" alt="Dunlop"></div>
+            <div class="slide"><img src="Neumaticos-Michelin.png" alt="Michelin"></div>
         </div>
     </div>
 </section>
@@ -1478,36 +1516,41 @@
         <h2 class="section-title" data-i18n="services.title">Nuestros <span>Servicios</span></h2>
         <p class="section-subtitle" data-i18n="services.subtitle">Todo lo que necesitas para tu moto en Irún</p>
     </div>
-    <div class="services-grid">
-        <div class="service-card">
-            <div class="service-icon"><img src="icons/wrench.svg" alt=""></div>
-            <h3 data-i18n="services.s1.title">Reparación y Mantenimiento</h3>
-            <p data-i18n="services.s1.desc">Revisiones, cambios de aceite, frenos, cadena y todo tipo de reparaciones mecánicas.</p>
+    <div class="services-body">
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon"><img src="icons/wrench.svg" alt=""></div>
+                <h3 data-i18n="services.s1.title">Reparación y Mantenimiento</h3>
+                <p data-i18n="services.s1.desc">Revisiones, cambios de aceite, frenos, cadena y todo tipo de reparaciones mecánicas.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><img src="icons/moto.svg" alt=""></div>
+                <h3 data-i18n="services.s2.title">Venta de Motos Honda y SYM</h3>
+                <p data-i18n="services.s2.desc">Distribuidor oficial Honda y SYM. Amplio catálogo de motos nuevas y asesoramiento personalizado.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><img src="icons/helmet.svg" alt=""></div>
+                <h3 data-i18n="services.s4.title">Cascos y Accesorios</h3>
+                <p data-i18n="services.s4.desc">Distribuidor LS2 y HJC. Amplia gama de cascos homologados y accesorios de seguridad.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><img src="icons/gear.svg" alt=""></div>
+                <h3 data-i18n="services.s5.title">Recambios y Piezas</h3>
+                <p data-i18n="services.s5.desc">Piezas originales y compatibles para todo tipo de modelos. Servicio de pedido rápido.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><img src="icons/support.svg" alt=""></div>
+                <h3 data-i18n="services.s6.title">Asesoramiento Técnico</h3>
+                <p data-i18n="services.s6.desc">Consulta sin cita previa. Nuestros técnicos resuelven tus dudas con rapidez y profesionalidad.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><img src="icons/scooter.svg" alt=""></div>
+                <h3 data-i18n="services.s7.title">Especialistas en Scooters</h3>
+                <p data-i18n="services.s7.desc">Especialistas en scooters y ciclomotores. Servicio de neumáticos, revisiones y puestas a punto para tu scooter.</p>
+            </div>
         </div>
-        <div class="service-card">
-            <div class="service-icon"><img src="icons/moto.svg" alt=""></div>
-            <h3 data-i18n="services.s2.title">Venta de Motos Honda y SYM</h3>
-            <p data-i18n="services.s2.desc">Distribuidor oficial Honda y SYM. Amplio catálogo de motos nuevas y asesoramiento personalizado.</p>
-        </div>
-        <div class="service-card">
-            <div class="service-icon"><img src="icons/helmet.svg" alt=""></div>
-            <h3 data-i18n="services.s4.title">Cascos y Accesorios</h3>
-            <p data-i18n="services.s4.desc">Distribuidor LS2 y HJC. Amplia gama de cascos homologados y accesorios de seguridad.</p>
-        </div>
-        <div class="service-card">
-            <div class="service-icon"><img src="icons/gear.svg" alt=""></div>
-            <h3 data-i18n="services.s5.title">Recambios y Piezas</h3>
-            <p data-i18n="services.s5.desc">Piezas originales y compatibles para todo tipo de modelos. Servicio de pedido rápido.</p>
-        </div>
-        <div class="service-card">
-            <div class="service-icon"><img src="icons/support.svg" alt=""></div>
-            <h3 data-i18n="services.s6.title">Asesoramiento Técnico</h3>
-            <p data-i18n="services.s6.desc">Consulta sin cita previa. Nuestros técnicos resuelven tus dudas con rapidez y profesionalidad.</p>
-        </div>
-        <div class="service-card">
-            <div class="service-icon"><img src="icons/scooter.svg" alt=""></div>
-            <h3 data-i18n="services.s7.title">Especialistas en Scooters</h3>
-            <p data-i18n="services.s7.desc">Especialistas en scooters y ciclomotores. Servicio de neumáticos, revisiones y puestas a punto para tu scooter.</p>
+        <div class="services-side-img">
+            <img src="ESPECIALISTASENSCOOTERS.png" alt="Especialistas en Scooters">
         </div>
     </div>
 </section>
@@ -1672,6 +1715,36 @@
                 <div class="moto-card-body">
                     <h3>SYM Symphony ST 125</h3>
                     <p data-i18n="motos.m14.desc">Scooter urbano 125cc cómodo, versátil y de bajo consumo</p>
+                    <a href="#contacto" class="btn-red-sm" data-i18n="motos.btn">Consultar</a>
+                </div>
+            </div>
+            <div class="moto-card">
+                <div class="moto-card-img">
+                    <img src="MOTOSPNG/sym/adx 125 sym.png" alt="SYM ADX 125" loading="lazy">
+                </div>
+                <div class="moto-card-body">
+                    <h3>SYM ADX 125</h3>
+                    <p data-i18n="motos.m15.desc">Scooter adventure 125cc con carácter todoterreno y gran versatilidad</p>
+                    <a href="#contacto" class="btn-red-sm" data-i18n="motos.btn">Consultar</a>
+                </div>
+            </div>
+            <div class="moto-card">
+                <div class="moto-card-img">
+                    <img src="MOTOSPNG/sym/jet evo 125.png" alt="SYM Jet EVO 125" loading="lazy">
+                </div>
+                <div class="moto-card-body">
+                    <h3>SYM Jet EVO 125</h3>
+                    <p data-i18n="motos.m16.desc">Scooter deportivo 125cc de última generación, ágil y con gran equipamiento</p>
+                    <a href="#contacto" class="btn-red-sm" data-i18n="motos.btn">Consultar</a>
+                </div>
+            </div>
+            <div class="moto-card">
+                <div class="moto-card-img">
+                    <img src="MOTOSPNG/sym/joymax 125.png" alt="SYM Joymax 125" loading="lazy">
+                </div>
+                <div class="moto-card-body">
+                    <h3>SYM Joymax 125</h3>
+                    <p data-i18n="motos.m17.desc">Maxi-scooter 125cc con gran espacio de almacenaje y confort superior</p>
                     <a href="#contacto" class="btn-red-sm" data-i18n="motos.btn">Consultar</a>
                 </div>
             </div>
@@ -2051,6 +2124,9 @@ const translations = {
         "motos.m12.desc": "Scooter deportivo 125cc \u00e1gil y din\u00e1mico para moverse por la ciudad",
         "motos.m13.desc": "Scooter cl\u00e1sico 125cc con acabados premium y gran comodidad",
         "motos.m14.desc": "Scooter urbano 125cc c\u00f3modo, vers\u00e1til y de bajo consumo",
+        "motos.m15.desc": "Scooter adventure 125cc con car\u00e1cter todoterreno y gran versatilidad",
+        "motos.m16.desc": "Scooter deportivo 125cc de \u00faltima generaci\u00f3n, \u00e1gil y con gran equipamiento",
+        "motos.m17.desc": "Maxi-scooter 125cc con gran espacio de almacenaje y confort superior",
         "motos.btn": "Consultar",
         "motos.note": "Estas son solo algunas de las motos disponibles. <a href=\"#contacto\" style=\"color:var(--red); font-weight:700;\">Cont\u00e1ctanos</a> para consultar todo el cat\u00e1logo Honda y SYM.",
         "gallery.title": "Nuestra <span>Galer\u00eda</span>",
@@ -2163,6 +2239,9 @@ const translations = {
         "motos.m12.desc": "Scooter kirolaria 125cc hirian mugitzeko arina eta dinamikoa",
         "motos.m13.desc": "Scooter klasikoa 125cc, premium bukaerekin eta erosotasun handiarekin",
         "motos.m14.desc": "Scooter hiritarra 125cc erosoa, moldagarria eta kontsumo txikikoa",
+        "motos.m15.desc": "Adventure scooter 125cc, ibilgailu guztirako izaera eta malgutasun handia",
+        "motos.m16.desc": "Belaunaldi berriko scooter kirolaria 125cc, arina eta ekipamendu osoa",
+        "motos.m17.desc": "Maxi-scooter 125cc biltegi-espazio zabalarekin eta erosotasun gorenarekin",
         "motos.btn": "Kontsultatu",
         "motos.note": "Hauek eskuragarri ditugun moto batzuk baino ez dira. <a href=\"#contacto\" style=\"color:var(--red); font-weight:700;\">Jarri gurekin harremanetan</a> Honda eta SYM katalogo osoa ikusteko.",
         "gallery.title": "Gure <span>Galeria</span>",
@@ -2275,6 +2354,9 @@ const translations = {
         "motos.m12.desc": "Sporty 125cc scooter, agile and dynamic for city commuting",
         "motos.m13.desc": "Classic 125cc scooter with premium finishes and great comfort",
         "motos.m14.desc": "Urban 125cc scooter, comfortable, versatile and low consumption",
+        "motos.m15.desc": "Adventure scooter 125cc with off-road character and great versatility",
+        "motos.m16.desc": "Latest generation sporty 125cc scooter, agile and well-equipped",
+        "motos.m17.desc": "Maxi-scooter 125cc with large storage space and superior comfort",
         "motos.btn": "Enquire",
         "motos.note": "These are just some of the bikes available. <a href=\"#contacto\" style=\"color:var(--red); font-weight:700;\">Contact us</a> to see the full Honda and SYM catalogue.",
         "gallery.title": "Our <span>Gallery</span>",
@@ -2387,6 +2469,9 @@ const translations = {
         "motos.m12.desc": "Scooter sportif 125cc agile et dynamique pour se d\u00e9placer en ville",
         "motos.m13.desc": "Scooter classique 125cc avec finitions premium et grand confort",
         "motos.m14.desc": "Scooter urbain 125cc confortable, polyvalent et \u00e0 faible consommation",
+        "motos.m15.desc": "Scooter adventure 125cc au caract\u00e8re tout-terrain et grande polyvalence",
+        "motos.m16.desc": "Scooter sportif 125cc derni\u00e8re g\u00e9n\u00e9ration, agile et bien \u00e9quip\u00e9",
+        "motos.m17.desc": "Maxi-scooter 125cc avec grand espace de rangement et confort sup\u00e9rieur",
         "motos.btn": "Renseignements",
         "motos.note": "Ce ne sont que quelques-unes des motos disponibles. <a href=\"#contacto\" style=\"color:var(--red); font-weight:700;\">Contactez-nous</a> pour consulter tout le catalogue Honda et SYM.",
         "gallery.title": "Notre <span>Galerie</span>",
