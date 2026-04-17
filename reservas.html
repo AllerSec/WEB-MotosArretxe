@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Reservas y Citas | Arretxe Motos Irún — Taller de Motos Honda y SYM</title>
+    <meta name="description" content="Reserva tu cita en Arretxe Motos, taller de motos en Irún (Gipuzkoa). Llámanos al 943 62 59 05 para revisiones, reparaciones y asesoramiento. Distribuidores oficiales Honda y SYM.">
+    <meta name="keywords" content="reservar cita taller motos Irún, pedir cita moto Irún, reservas Arretxe Motos, cita revisión moto Gipuzkoa, taller Honda SYM Irún">
+    <meta name="robots" content="index, follow">
+    <meta name="geo.region" content="ES-SS">
+    <meta name="geo.placename" content="Irún, Gipuzkoa">
+    <link rel="canonical" href="https://www.motosarretxe.com/reservas.html">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.motosarretxe.com/reservas.html">
+    <meta property="og:title" content="Reservas y Citas | Arretxe Motos Irún">
+    <meta property="og:description" content="Reserva tu cita en Arretxe Motos. Llámanos al 943 62 59 05. Taller de motos Honda y SYM en Irún.">
+    <meta property="og:image" content="galeria_IMG_9399.webp">
+    <meta property="og:locale" content="es_ES">
+    <meta property="og:site_name" content="Arretxe Motos">
+
+    <link rel="icon" type="image/png" href="LOGO-FAVICON.png">
+    <link rel="apple-touch-icon" href="LOGO.png">
+
+    <!-- Fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        /* ===== RESET ===== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            color: #111;
+            background: #fff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        img { max-width: 100%; height: auto; display: block; }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        /* ===== VARIABLES ===== */
+        :root {
+            --red: #CC0000;
+            --red-dark: #aa0000;
+            --white: #ffffff;
+            --black: #111111;
+            --gray-light: #f5f5f5;
+            --gray: #666;
+            --green: #16a34a;
+            --green-dark: #15803d;
+            --radius: 8px;
+            --shadow: 0 4px 20px rgba(0,0,0,0.10);
+            --shadow-lg: 0 20px 60px rgba(0,0,0,0.15);
+            --transition: 0.3s ease;
+        }
+
+        /* ===== TOPBAR ===== */
+        .topbar {
+            background: var(--red);
+            color: #fff;
+            font-size: 0.8rem;
+            padding: 6px 0;
+        }
+        .topbar-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px 24px;
+            align-items: center;
+            justify-content: center;
+        }
+        .topbar-item { display: flex; align-items: center; gap: 6px; }
+        .topbar-item img { width: 14px; height: 14px; filter: brightness(0) invert(1); }
+
+        /* ===== HEADER / NAVBAR ===== */
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: #fff;
+            border-bottom: 3px solid var(--red);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+        }
+        .navbar {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 70px;
+        }
+        .navbar-logo img { height: 50px; width: auto; object-fit: contain; }
+        .navbar-right { display: flex; align-items: center; gap: 6px; }
+        .nav-links { display: flex; gap: 4px; align-items: center; }
+        .nav-links a {
+            padding: 6px 10px;
+            font-size: 0.87rem;
+            font-weight: 600;
+            color: #222;
+            border-radius: 4px;
+            transition: color var(--transition), background var(--transition);
+        }
+        .nav-links a:hover,
+        .nav-links a.active { color: var(--red); background: #ffeaea; }
+        .lang-switcher { display: flex; gap: 3px; margin-left: 10px; }
+        .lang-btn {
+            background: none;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 4px 7px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            cursor: pointer;
+            color: #555;
+            transition: all var(--transition);
+        }
+        .lang-btn:hover, .lang-btn.active {
+            background: var(--red);
+            border-color: var(--red);
+            color: #fff;
+        }
+        .burger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 6px;
+            background: none;
+            border: none;
+        }
+        .burger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: #222;
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+        .mobile-nav {
+            display: none;
+            flex-direction: column;
+            background: #fff;
+            border-top: 1px solid #eee;
+            padding: 10px 20px 16px;
+        }
+        .mobile-nav.open { display: flex; }
+        .mobile-nav a {
+            padding: 10px 0;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #222;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .mobile-nav a:hover { color: var(--red); }
+        .mobile-lang { display: flex; gap: 6px; margin-top: 12px; }
+
+        /* ===== PAGE HERO ===== */
+        .page-hero {
+            position: relative;
+            padding: 48px 20px 62px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a0505 50%, #4a0000 100%);
+            color: #fff;
+            overflow: hidden;
+            text-align: center;
+        }
+        .page-hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image:
+                radial-gradient(circle at 20% 30%, rgba(204,0,0,0.25), transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(204,0,0,0.18), transparent 45%);
+            pointer-events: none;
+        }
+        .page-hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            mask-image: radial-gradient(ellipse at center, black 40%, transparent 75%);
+            -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 75%);
+            pointer-events: none;
+        }
+        .page-hero-inner {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .page-hero-badge {
+            display: inline-block;
+            background: var(--red);
+            color: #fff;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 6px 18px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+        }
+        .page-hero h1 {
+            font-size: clamp(1.8rem, 4.5vw, 3rem);
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 0;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+        .page-hero h1 span {
+            color: #fff;
+            background-image: linear-gradient(to right, rgba(204,0,0,0.85) 50%, transparent 50%);
+            background-size: 200% 1.1em;
+            background-repeat: no-repeat;
+            background-position: 0% 50%;
+            padding: 0 8px;
+            border-radius: 3px;
+        }
+        .page-hero p {
+            font-size: 1.08rem;
+            color: rgba(255,255,255,0.85);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            font-size: 0.82rem;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 22px;
+        }
+        .breadcrumb a { color: rgba(255,255,255,0.7); transition: color 0.2s; }
+        .breadcrumb a:hover { color: #fff; }
+        .breadcrumb .sep { opacity: 0.5; }
+
+        /* ===== STATUS CARD ===== */
+        .status-section {
+            background: var(--gray-light);
+            padding: 50px 20px 40px;
+        }
+        .status-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+            border: 1px solid #eaeaea;
+        }
+        .status-header {
+            padding: 32px 36px 20px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .status-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #333;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .status-title img { width: 20px; height: 20px; }
+
+        .status-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 9px 18px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            letter-spacing: 0.3px;
+            transition: all 0.4s;
+        }
+        .status-pill.open {
+            background: #e8f8ec;
+            color: var(--green-dark);
+            box-shadow: 0 0 0 3px rgba(22,163,74,0.12);
+        }
+        .status-pill.closed {
+            background: #ffeaea;
+            color: var(--red-dark);
+            box-shadow: 0 0 0 3px rgba(204,0,0,0.12);
+        }
+        .status-dot {
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            position: relative;
+        }
+        .status-pill.open .status-dot { background: var(--green); }
+        .status-pill.open .status-dot::after {
+            content: "";
+            position: absolute;
+            inset: -4px;
+            border-radius: 50%;
+            background: rgba(22,163,74,0.5);
+            animation: pulseDot 1.8s infinite;
+        }
+        .status-pill.closed .status-dot { background: var(--red); }
+        @keyframes pulseDot {
+            0%   { transform: scale(0.8); opacity: 0.8; }
+            100% { transform: scale(2.2);  opacity: 0; }
+        }
+
+        .status-body {
+            padding: 24px 36px 30px;
+        }
+        .status-today {
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+            flex-wrap: wrap;
+            padding: 16px 20px;
+            background: #fafafa;
+            border: 1px solid #eee;
+            border-left: 4px solid var(--red);
+            border-radius: 10px;
+            margin-bottom: 16px;
+        }
+        .today-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--red);
+        }
+        .today-day {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #111;
+            text-transform: capitalize;
+        }
+        .today-hours {
+            margin-left: auto;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #111;
+            letter-spacing: 0.3px;
+        }
+        .today-hours.closed { color: #999; font-style: italic; font-weight: 600; }
+        .status-message {
+            font-size: 1rem;
+            color: #444;
+        }
+        .status-message strong { color: #111; font-weight: 700; }
+        .status-next {
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: var(--gray);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .status-next img { width: 14px; height: 14px; opacity: 0.6; }
+
+        /* ===== PHONE CTA ===== */
+        .phone-cta-section {
+            padding: 30px 20px 70px;
+            background: var(--gray-light);
+            text-align: center;
+        }
+        .phone-cta-wrap {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .phone-cta-label {
+            display: inline-block;
+            color: var(--red);
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+        .phone-cta-heading {
+            font-size: clamp(1.4rem, 3vw, 2rem);
+            font-weight: 800;
+            color: #111;
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+        .phone-cta-heading span { color: var(--red); }
+
+        .phone-card {
+            background: linear-gradient(135deg, #CC0000 0%, #8b0000 100%);
+            color: #fff;
+            padding: 40px 28px;
+            border-radius: 20px;
+            box-shadow:
+                0 30px 60px -15px rgba(204,0,0,0.45),
+                0 15px 30px -10px rgba(0,0,0,0.25);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.4s;
+        }
+        .phone-card:hover { transform: translateY(-4px); }
+        .phone-card::before {
+            content: "";
+            position: absolute;
+            top: -80px; right: -80px;
+            width: 260px; height: 260px;
+            background: rgba(255,255,255,0.08);
+            border-radius: 50%;
+        }
+        .phone-card::after {
+            content: "";
+            position: absolute;
+            bottom: -100px; left: -60px;
+            width: 300px; height: 300px;
+            background: rgba(0,0,0,0.12);
+            border-radius: 50%;
+        }
+        .phone-card-inner {
+            position: relative;
+            z-index: 2;
+        }
+        .phone-icon-wrap {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 22px;
+            background: rgba(255,255,255,0.15);
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: ringPhone 2.4s ease-in-out infinite;
+        }
+        @keyframes ringPhone {
+            0%, 100% { transform: rotate(0); }
+            10%, 30% { transform: rotate(-12deg); }
+            20%, 40% { transform: rotate(12deg); }
+            50%      { transform: rotate(0); }
+        }
+        .phone-icon-wrap img {
+            width: 36px;
+            height: 36px;
+            filter: brightness(0) invert(1);
+        }
+        .phone-label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            opacity: 0.85;
+            margin-bottom: 12px;
+        }
+        .phone-number {
+            display: inline-block;
+            font-size: clamp(2.4rem, 8vw, 5.2rem);
+            font-weight: 900;
+            letter-spacing: -2px;
+            line-height: 1;
+            margin-bottom: 10px;
+            color: #fff;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            transition: transform 0.2s;
+        }
+        .phone-number:hover { transform: scale(1.03); }
+        .phone-hint {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+        .phone-actions {
+            display: flex;
+            gap: 14px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .btn-call {
+            background: #fff;
+            color: var(--red);
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.25s;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+        }
+        .btn-call:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 24px rgba(0,0,0,0.3);
+        }
+        .btn-call img { width: 18px; height: 18px; }
+        .btn-whatsapp {
+            background: #25D366;
+            color: #fff;
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.25s;
+            box-shadow: 0 6px 18px rgba(37,211,102,0.3);
+        }
+        .btn-whatsapp:hover {
+            background: #1fb855;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 24px rgba(37,211,102,0.4);
+        }
+        .btn-whatsapp svg { width: 18px; height: 18px; fill: currentColor; }
+
+        /* ===== FOOTER ===== */
+        .site-footer {
+            background: #0d0d0d;
+            color: #aaa;
+            padding: 60px 20px 24px;
+        }
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr;
+            gap: 40px;
+        }
+        .footer-logo { height: 46px; width: auto; margin-bottom: 14px; filter: brightness(0) invert(1); }
+        .footer-desc { font-size: 0.87rem; color: #999; line-height: 1.7; }
+        .footer-col h4 {
+            color: #fff;
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .footer-links a {
+            color: #999;
+            font-size: 0.88rem;
+            transition: color 0.3s;
+        }
+        .footer-links a:hover { color: var(--red); }
+        .footer-contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 12px;
+            font-size: 0.88rem;
+            color: #999;
+        }
+        .footer-contact-item img { width: 15px; height: 15px; filter: brightness(0) invert(0.5); margin-top: 2px; flex-shrink: 0; }
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 40px auto 0;
+            padding-top: 22px;
+            border-top: 1px solid #222;
+            text-align: center;
+            font-size: 0.82rem;
+            color: #777;
+        }
+
+        /* ===== FLOATING BUTTONS ===== */
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 58px;
+            height: 58px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 24px rgba(37,211,102,0.5);
+            z-index: 999;
+            transition: transform 0.2s;
+        }
+        .floating-whatsapp:hover { transform: scale(1.1); }
+        .floating-whatsapp svg { width: 30px; height: 30px; fill: #fff; }
+        .floating-whatsapp::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            border: 3px solid #25D366;
+            animation: pulseRing 2s infinite;
+        }
+        @keyframes pulseRing {
+            0%   { transform: scale(1); opacity: 0.8; }
+            100% { transform: scale(1.7); opacity: 0; }
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 860px) {
+            .status-body { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .footer-grid > :first-child { grid-column: span 2; }
+        }
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .burger { display: flex; }
+            .lang-switcher { display: none; }
+            .page-hero { padding: 50px 20px 70px; }
+            .phone-cta-section { padding: 60px 20px; }
+            .phone-card { padding: 40px 22px; }
+            .phone-icon-wrap { width: 66px; height: 66px; }
+            .phone-icon-wrap img { width: 28px; height: 28px; }
+            .status-header { padding: 24px 24px 16px; flex-direction: column; align-items: flex-start; }
+            .status-body { padding: 20px 24px 28px; }
+        }
+        @media (max-width: 560px) {
+            .footer-grid { grid-template-columns: 1fr; }
+            .footer-grid > :first-child { grid-column: span 1; }
+            .phone-actions { flex-direction: column; align-items: stretch; }
+            .btn-call, .btn-whatsapp { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ===== TOPBAR ===== -->
+<div class="topbar">
+    <div class="topbar-inner">
+        <div class="topbar-item">
+            <img src="icons/phone.svg" alt="">
+            <span>943 62 59 05</span>
+        </div>
+        <div class="topbar-item">
+            <img src="icons/email.svg" alt="">
+            <span>motosarretxe@gmail.com</span>
+        </div>
+        <div class="topbar-item">
+            <img src="icons/location.svg" alt="">
+            <span>Salvador Echeandia Kalea, 12, BJ 1 &mdash; Irún, Gipuzkoa</span>
+        </div>
+        <div class="topbar-item">
+            <img src="icons/clock.svg" alt="">
+            <span data-i18n="topbar.hours">L-V 9:00-13:00 / 15:30-19:30 &bull; Sab-Dom Cerrado</span>
+        </div>
+    </div>
+</div>
+
+<!-- ===== HEADER / NAVBAR ===== -->
+<header class="site-header">
+    <nav class="navbar">
+        <a href="index.html" class="navbar-logo">
+            <img src="LOGO.png" alt="Arretxe Motos y Maquinaria Agricola">
+        </a>
+        <div class="navbar-right">
+            <ul class="nav-links">
+                <li><a href="index.html#inicio" data-i18n="nav.inicio">Inicio</a></li>
+                <li><a href="index.html#nosotros" data-i18n="nav.nosotros">Nosotros</a></li>
+                <li><a href="index.html#servicios" data-i18n="nav.servicios">Servicios</a></li>
+                <li><a href="index.html#motos">Motos</a></li>
+                <li><a href="index.html#galeria" data-i18n="nav.galeria">Galería</a></li>
+                <li><a href="reservas.html" class="active" data-i18n="nav.reservas">Reservas</a></li>
+                <li><a href="index.html#contacto" data-i18n="nav.contacto">Contacto</a></li>
+            </ul>
+            <div class="lang-switcher">
+                <button class="lang-btn active" data-lang="es" onclick="setLang('es')">ES</button>
+                <button class="lang-btn" data-lang="eu" onclick="setLang('eu')">EU</button>
+                <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+                <button class="lang-btn" data-lang="fr" onclick="setLang('fr')">FR</button>
+            </div>
+        </div>
+        <button class="burger" onclick="toggleNav()" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+    <div class="mobile-nav" id="mobileNav">
+        <a href="index.html#inicio" data-i18n="nav.inicio">Inicio</a>
+        <a href="index.html#nosotros" data-i18n="nav.nosotros">Nosotros</a>
+        <a href="index.html#servicios" data-i18n="nav.servicios">Servicios</a>
+        <a href="index.html#motos">Motos</a>
+        <a href="index.html#galeria" data-i18n="nav.galeria">Galería</a>
+        <a href="reservas.html" data-i18n="nav.reservas">Reservas</a>
+        <a href="index.html#contacto" data-i18n="nav.contacto">Contacto</a>
+        <div class="mobile-lang">
+            <button class="lang-btn active" data-lang="es" onclick="setLang('es')">ES</button>
+            <button class="lang-btn" data-lang="eu" onclick="setLang('eu')">EU</button>
+            <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+            <button class="lang-btn" data-lang="fr" onclick="setLang('fr')">FR</button>
+        </div>
+    </div>
+</header>
+
+<!-- ===== PAGE HERO ===== -->
+<section class="page-hero">
+    <div class="page-hero-inner">
+        <div class="page-hero-badge" data-i18n="reservas.badge">Reservas y citas</div>
+        <h1 data-i18n-html="reservas.title">Reserva tu <span>cita</span> con nosotros</h1>
+    </div>
+</section>
+
+<!-- ===== STATUS CARD ===== -->
+<section class="status-section">
+    <div class="status-container">
+        <div class="status-header">
+            <div class="status-title">
+                <img src="icons/clock.svg" alt="">
+                <span data-i18n="status.title">Estado del taller</span>
+            </div>
+            <div class="status-pill" id="statusPill">
+                <span class="status-dot"></span>
+                <span id="statusText">—</span>
+            </div>
+        </div>
+        <div class="status-body">
+            <div class="status-today">
+                <span class="today-label" data-i18n="status.today">Hoy</span>
+                <span class="today-day" id="todayDay">—</span>
+                <span class="today-hours" id="todayHours">—</span>
+            </div>
+            <div class="status-message">
+                <div id="statusMessage" data-i18n="status.loading">Comprobando horario…</div>
+                <div class="status-next" id="statusNext"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== PHONE CTA ===== -->
+<section class="phone-cta-section">
+    <div class="phone-cta-wrap">
+        <h2 class="phone-cta-heading" data-i18n-html="phone.heading">Para reservar, <span>llámanos</span></h2>
+
+        <div class="phone-card">
+            <div class="phone-card-inner">
+                <div class="phone-icon-wrap">
+                    <img src="icons/phone.svg" alt="Teléfono">
+                </div>
+                <div class="phone-label" data-i18n="phone.call">Llámanos al</div>
+                <a href="tel:+34943625905" class="phone-number" aria-label="Llamar a Arretxe Motos">943 62 59 05</a>
+                <div class="phone-hint" data-i18n="phone.hint">Te atendemos en horario comercial</div>
+                <div class="phone-actions">
+                    <a href="tel:+34943625905" class="btn-call">
+                        <img src="icons/phone.svg" alt="">
+                        <span data-i18n="phone.btnCall">Llamar ahora</span>
+                    </a>
+                    <a href="https://wa.me/34943625905?text=Hola%2C%20quer%C3%ADa%20reservar%20una%20cita%20en%20Arretxe%20Motos" target="_blank" rel="noopener" class="btn-whatsapp">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                        <span data-i18n="phone.btnWhats">WhatsApp</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== FLOATING WHATSAPP ===== -->
+<a href="https://wa.me/34943625905?text=Hola%2C%20quer%C3%ADa%20reservar%20una%20cita%20en%20Arretxe%20Motos" target="_blank" rel="noopener" class="floating-whatsapp" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+    <div class="footer-grid">
+        <div class="footer-col">
+            <img src="LOGO.png" alt="Arretxe Motos" class="footer-logo">
+            <p class="footer-desc" data-i18n="footer.desc">Taller de motos en Irún, Gipuzkoa. Distribuidores oficiales Honda y SYM desde hace más de 58 años.</p>
+        </div>
+        <div class="footer-col">
+            <h4 data-i18n="footer.nav.title">Navegación</h4>
+            <nav class="footer-links">
+                <a href="index.html#inicio" data-i18n="nav.inicio">Inicio</a>
+                <a href="index.html#nosotros" data-i18n="nav.nosotros">Nosotros</a>
+                <a href="index.html#servicios" data-i18n="nav.servicios">Servicios</a>
+                <a href="index.html#motos">Motos</a>
+                <a href="index.html#galeria" data-i18n="nav.galeria">Galería</a>
+                <a href="reservas.html" data-i18n="nav.reservas">Reservas</a>
+                <a href="index.html#contacto" data-i18n="nav.contacto">Contacto</a>
+            </nav>
+        </div>
+        <div class="footer-col">
+            <h4 data-i18n="footer.contact.title">Contacto</h4>
+            <div class="footer-contact-item">
+                <img src="icons/location.svg" alt="">
+                <span>Salvador Echeandia Kalea, 12, BJ 1<br>20304 Irún, Gipuzkoa</span>
+            </div>
+            <div class="footer-contact-item">
+                <img src="icons/phone.svg" alt="">
+                <span><a href="tel:+34943625905" style="color:#999">943 62 59 05</a></span>
+            </div>
+            <div class="footer-contact-item">
+                <img src="icons/email.svg" alt="">
+                <span><a href="mailto:motosarretxe@gmail.com" style="color:#999">motosarretxe@gmail.com</a></span>
+            </div>
+            <div class="footer-contact-item">
+                <img src="icons/clock.svg" alt="">
+                <span data-i18n="footer.hours">L-V: 9:00-13:00 / 15:30-19:30</span>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 Arretxe Motos y Maquinaria Agricola S.L. &mdash; <span data-i18n="footer.rights">Todos los derechos reservados</span></p>
+        <p style="margin-top:8px; font-size:0.75rem; color:#666;" data-i18n-html="footer.dev">Desarrollado por <a href="https://unaxaller.com" target="_blank" rel="noopener" style="color:var(--red); font-weight:600;">Unax Aller</a></p>
+    </div>
+</footer>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+/* ===== Horario del taller (hora local Europe/Madrid) ===== */
+/* Lunes=1 ... Viernes=5. Sábado=6, Domingo=0 cerrados. */
+const SCHEDULE = {
+    1: [['09:00','13:00'], ['15:30','19:30']],
+    2: [['09:00','13:00'], ['15:30','19:30']],
+    3: [['09:00','13:00'], ['15:30','19:30']],
+    4: [['09:00','13:00'], ['15:30','19:30']],
+    5: [['09:00','13:00'], ['15:30','19:30']],
+    6: [],
+    0: []
+};
+
+/* ===== Traducciones ===== */
+const translations = {
+    es: {
+        "topbar.hours": "L-V 9:00-13:00 / 15:30-19:30 • Sab-Dom Cerrado",
+        "nav.inicio": "Inicio", "nav.nosotros": "Nosotros", "nav.servicios": "Servicios",
+        "nav.galeria": "Galería", "nav.ubicacion": "Ubicación", "nav.resenas": "Reseñas",
+        "nav.contacto": "Contacto", "nav.reservas": "Reservas",
+        "reservas.badge": "Reservas y citas",
+        "reservas.title": "Reserva tu <span>cita</span> con nosotros",
+        "status.title": "Estado del taller",
+        "status.today": "Hoy",
+        "status.loading": "Comprobando horario…",
+        "status.open": "ABIERTO",
+        "status.closed": "CERRADO",
+        "status.openNow": "Estamos <strong>abiertos</strong> y listos para atenderte. Llámanos ahora.",
+        "status.closingSoon": "Cerramos en <strong>{min} min</strong>. Aún estás a tiempo de llamar.",
+        "status.closedNow": "Ahora mismo estamos <strong>cerrados</strong>. Puedes llamarnos en nuestro próximo horario.",
+        "status.opensToday": "Abrimos hoy a las <strong>{time}</strong>.",
+        "status.opensDay": "Abrimos el <strong>{day}</strong> a las <strong>{time}</strong>.",
+        "phone.heading": "Para reservar, <span>llámanos</span>",
+        "phone.call": "Llámanos al",
+        "phone.hint": "Te atendemos en horario comercial",
+        "phone.btnCall": "Llamar ahora",
+        "phone.btnWhats": "WhatsApp",
+        "footer.desc": "Taller de motos en Irún, Gipuzkoa. Distribuidores oficiales Honda y SYM desde hace más de 58 años.",
+        "footer.nav.title": "Navegación",
+        "footer.contact.title": "Contacto",
+        "footer.hours": "L-V: 9:00-13:00 / 15:30-19:30",
+        "footer.rights": "Todos los derechos reservados",
+        "footer.dev": "Desarrollado por <a href=\"https://unaxaller.com\" target=\"_blank\" rel=\"noopener\" style=\"color:var(--red); font-weight:600;\">Unax Aller</a>",
+        "days.1": "Lunes", "days.2": "Martes", "days.3": "Miércoles", "days.4": "Jueves", "days.5": "Viernes", "days.6": "Sábado", "days.0": "Domingo",
+        "days.short.1": "lunes", "days.short.2": "martes", "days.short.3": "miércoles", "days.short.4": "jueves", "days.short.5": "viernes", "days.short.6": "sábado", "days.short.0": "domingo",
+        "days.closed": "Cerrado"
+    },
+    eu: {
+        "topbar.hours": "AL-OR 9:00-13:00 / 15:30-19:30 • Lar-Ig Itxita",
+        "nav.inicio": "Hasiera", "nav.nosotros": "Gu", "nav.servicios": "Zerbitzuak",
+        "nav.galeria": "Galeria", "nav.ubicacion": "Kokalekua", "nav.resenas": "Iritziak",
+        "nav.contacto": "Kontaktua", "nav.reservas": "Erreserbak",
+        "reservas.badge": "Erreserbak eta hitzorduak",
+        "reservas.title": "Hartu zure <span>hitzordua</span> gurekin",
+        "status.title": "Tailerraren egoera",
+        "status.today": "Gaur",
+        "status.loading": "Ordutegia egiaztatzen…",
+        "status.open": "IREKITA",
+        "status.closed": "ITXITA",
+        "status.openNow": "<strong>Irekita</strong> gaude zu artatzeko. Deitu orain.",
+        "status.closingSoon": "<strong>{min} min</strong>-ean ixten dugu. Oraindik deitu dezakezu.",
+        "status.closedNow": "Une honetan <strong>itxita</strong> gaude. Deitu hurrengo ordutegian.",
+        "status.opensToday": "Gaur <strong>{time}</strong>etan irekitzen dugu.",
+        "status.opensDay": "<strong>{day}</strong>an <strong>{time}</strong>etan irekitzen dugu.",
+        "phone.heading": "Erreserbatzeko, <span>deitu</span>",
+        "phone.call": "Deitu",
+        "phone.hint": "Merkataritza-ordutegian artatzen zaitugu",
+        "phone.btnCall": "Deitu orain",
+        "phone.btnWhats": "WhatsApp",
+        "footer.desc": "Motoen tailerra Irunen, Gipuzkoan. Honda eta SYM banatzaile ofizialak 58 urte baino gehiagoz.",
+        "footer.nav.title": "Nabigazioa",
+        "footer.contact.title": "Kontaktua",
+        "footer.hours": "AL-OR: 9:00-13:00 / 15:30-19:30",
+        "footer.rights": "Eskubide guztiak erreserbatuta",
+        "footer.dev": "<a href=\"https://unaxaller.com\" target=\"_blank\" rel=\"noopener\" style=\"color:var(--red); font-weight:600;\">Unax Aller</a>-ek garatua",
+        "days.1": "Astelehena", "days.2": "Asteartea", "days.3": "Asteazkena", "days.4": "Osteguna", "days.5": "Ostirala", "days.6": "Larunbata", "days.0": "Igandea",
+        "days.short.1": "astelehen", "days.short.2": "astearte", "days.short.3": "asteazken", "days.short.4": "ostegun", "days.short.5": "ostiral", "days.short.6": "larunbat", "days.short.0": "igande",
+        "days.closed": "Itxita"
+    },
+    en: {
+        "topbar.hours": "Mon-Fri 9:00-13:00 / 15:30-19:30 • Sat-Sun Closed",
+        "nav.inicio": "Home", "nav.nosotros": "About", "nav.servicios": "Services",
+        "nav.galeria": "Gallery", "nav.ubicacion": "Location", "nav.resenas": "Reviews",
+        "nav.contacto": "Contact", "nav.reservas": "Booking",
+        "reservas.badge": "Reservations & bookings",
+        "reservas.title": "Book your <span>appointment</span> with us",
+        "status.title": "Workshop status",
+        "status.today": "Today",
+        "status.loading": "Checking schedule…",
+        "status.open": "OPEN",
+        "status.closed": "CLOSED",
+        "status.openNow": "We're <strong>open</strong> and ready to help. Call us now.",
+        "status.closingSoon": "We close in <strong>{min} min</strong>. Still time to call.",
+        "status.closedNow": "We're currently <strong>closed</strong>. Call us during our next opening hours.",
+        "status.opensToday": "We open today at <strong>{time}</strong>.",
+        "status.opensDay": "We open on <strong>{day}</strong> at <strong>{time}</strong>.",
+        "phone.heading": "To book, <span>call us</span>",
+        "phone.call": "Call us at",
+        "phone.hint": "We answer during business hours",
+        "phone.btnCall": "Call now",
+        "phone.btnWhats": "WhatsApp",
+        "footer.desc": "Motorcycle workshop in Irún, Gipuzkoa. Official Honda and SYM distributors for over 58 years.",
+        "footer.nav.title": "Navigation",
+        "footer.contact.title": "Contact",
+        "footer.hours": "Mon-Fri: 9:00-13:00 / 15:30-19:30",
+        "footer.rights": "All rights reserved",
+        "footer.dev": "Developed by <a href=\"https://unaxaller.com\" target=\"_blank\" rel=\"noopener\" style=\"color:var(--red); font-weight:600;\">Unax Aller</a>",
+        "days.1": "Monday", "days.2": "Tuesday", "days.3": "Wednesday", "days.4": "Thursday", "days.5": "Friday", "days.6": "Saturday", "days.0": "Sunday",
+        "days.short.1": "Monday", "days.short.2": "Tuesday", "days.short.3": "Wednesday", "days.short.4": "Thursday", "days.short.5": "Friday", "days.short.6": "Saturday", "days.short.0": "Sunday",
+        "days.closed": "Closed"
+    },
+    fr: {
+        "topbar.hours": "Lun-Ven 9:00-13:00 / 15:30-19:30 • Sam-Dim Fermé",
+        "nav.inicio": "Accueil", "nav.nosotros": "À propos", "nav.servicios": "Services",
+        "nav.galeria": "Galerie", "nav.ubicacion": "Emplacement", "nav.resenas": "Avis",
+        "nav.contacto": "Contact", "nav.reservas": "Réservations",
+        "reservas.badge": "Réservations et rendez-vous",
+        "reservas.title": "Réservez votre <span>rendez-vous</span>",
+        "status.title": "État de l'atelier",
+        "status.today": "Aujourd'hui",
+        "status.loading": "Vérification de l'horaire…",
+        "status.open": "OUVERT",
+        "status.closed": "FERMÉ",
+        "status.openNow": "Nous sommes <strong>ouverts</strong> et prêts à vous recevoir. Appelez-nous.",
+        "status.closingSoon": "Nous fermons dans <strong>{min} min</strong>. Il est encore temps d'appeler.",
+        "status.closedNow": "Nous sommes actuellement <strong>fermés</strong>. Appelez-nous à notre prochaine ouverture.",
+        "status.opensToday": "Nous ouvrons aujourd'hui à <strong>{time}</strong>.",
+        "status.opensDay": "Nous ouvrons <strong>{day}</strong> à <strong>{time}</strong>.",
+        "phone.heading": "Pour réserver, <span>appelez-nous</span>",
+        "phone.call": "Appelez-nous au",
+        "phone.hint": "Nous répondons pendant les heures d'ouverture",
+        "phone.btnCall": "Appeler",
+        "phone.btnWhats": "WhatsApp",
+        "footer.desc": "Atelier de motos à Irún, Gipuzkoa. Distributeurs officiels Honda et SYM depuis plus de 58 ans.",
+        "footer.nav.title": "Navigation",
+        "footer.contact.title": "Contact",
+        "footer.hours": "Lun-Ven : 9:00-13:00 / 15:30-19:30",
+        "footer.rights": "Tous droits réservés",
+        "footer.dev": "Développé par <a href=\"https://unaxaller.com\" target=\"_blank\" rel=\"noopener\" style=\"color:var(--red); font-weight:600;\">Unax Aller</a>",
+        "days.1": "Lundi", "days.2": "Mardi", "days.3": "Mercredi", "days.4": "Jeudi", "days.5": "Vendredi", "days.6": "Samedi", "days.0": "Dimanche",
+        "days.short.1": "lundi", "days.short.2": "mardi", "days.short.3": "mercredi", "days.short.4": "jeudi", "days.short.5": "vendredi", "days.short.6": "samedi", "days.short.0": "dimanche",
+        "days.closed": "Fermé"
+    }
+};
+
+let currentLang = localStorage.getItem('lang') || 'es';
+
+function t(key) {
+    return (translations[currentLang] && translations[currentLang][key]) || translations.es[key] || key;
+}
+
+function applyTranslations() {
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[currentLang] && translations[currentLang][key]) {
+            el.textContent = translations[currentLang][key];
+        }
+    });
+    document.querySelectorAll('[data-i18n-html]').forEach(el => {
+        const key = el.getAttribute('data-i18n-html');
+        if (translations[currentLang] && translations[currentLang][key]) {
+            el.innerHTML = translations[currentLang][key];
+        }
+    });
+    document.documentElement.setAttribute('lang', currentLang);
+}
+
+function setLang(lang) {
+    currentLang = lang;
+    localStorage.setItem('lang', lang);
+    document.querySelectorAll('.lang-btn').forEach(b => {
+        b.classList.toggle('active', b.dataset.lang === lang);
+    });
+    applyTranslations();
+    renderToday();
+    updateStatus();
+}
+
+function toggleNav() {
+    document.getElementById('mobileNav').classList.toggle('open');
+}
+
+/* ===== Hora local del taller (Europe/Madrid) ===== */
+function getMadridNow() {
+    // Devuelve un objeto con {day (0-6), minutes (0-1439)} según zona Madrid
+    const fmt = new Intl.DateTimeFormat('en-GB', {
+        timeZone: 'Europe/Madrid',
+        weekday: 'short', hour: '2-digit', minute: '2-digit', hour12: false
+    });
+    const parts = fmt.formatToParts(new Date());
+    const map = { Sun:0, Mon:1, Tue:2, Wed:3, Thu:4, Fri:5, Sat:6 };
+    let day = 0, hour = 0, minute = 0;
+    for (const p of parts) {
+        if (p.type === 'weekday') day = map[p.value] ?? 0;
+        if (p.type === 'hour')    hour = parseInt(p.value, 10);
+        if (p.type === 'minute')  minute = parseInt(p.value, 10);
+    }
+    return { day, minutes: hour * 60 + minute, hour, minute };
+}
+
+function toMin(hhmm) {
+    const [h, m] = hhmm.split(':').map(Number);
+    return h * 60 + m;
+}
+
+function fmtHHMM(min) {
+    const h = Math.floor(min / 60), m = min % 60;
+    return `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}`;
+}
+
+function findNextOpening(now) {
+    // Busca la próxima apertura dentro de los siguientes 7 días
+    for (let offset = 0; offset < 8; offset++) {
+        const day = (now.day + offset) % 7;
+        const slots = SCHEDULE[day] || [];
+        for (const [open, close] of slots) {
+            const openMin = toMin(open);
+            if (offset === 0 && openMin <= now.minutes) continue;
+            return { dayOffset: offset, day, openMin, closeMin: toMin(close) };
+        }
+    }
+    return null;
+}
+
+function findCurrentSlot(now) {
+    const slots = SCHEDULE[now.day] || [];
+    for (const [open, close] of slots) {
+        const o = toMin(open), c = toMin(close);
+        if (now.minutes >= o && now.minutes < c) return { openMin: o, closeMin: c };
+    }
+    return null;
+}
+
+function updateStatus() {
+    const now = getMadridNow();
+    const pill = document.getElementById('statusPill');
+    const text = document.getElementById('statusText');
+    const msg  = document.getElementById('statusMessage');
+    const next = document.getElementById('statusNext');
+
+    const current = findCurrentSlot(now);
+
+    if (current) {
+        const minLeft = current.closeMin - now.minutes;
+        pill.className = 'status-pill open';
+        text.textContent = t('status.open');
+        if (minLeft <= 30) {
+            msg.innerHTML = t('status.closingSoon').replace('{min}', minLeft);
+        } else {
+            msg.innerHTML = t('status.openNow');
+        }
+        next.innerHTML = '';
+    } else {
+        const nx = findNextOpening(now);
+        pill.className = 'status-pill closed';
+        text.textContent = t('status.closed');
+        msg.innerHTML = t('status.closedNow');
+        if (nx) {
+            const time = fmtHHMM(nx.openMin);
+            if (nx.dayOffset === 0) {
+                next.innerHTML = `<img src="icons/clock.svg" alt=""> ${t('status.opensToday').replace('{time}', time)}`;
+            } else {
+                const dayName = t('days.short.' + nx.day);
+                next.innerHTML = `<img src="icons/clock.svg" alt=""> ${t('status.opensDay').replace('{day}', dayName).replace('{time}', time)}`;
+            }
+        }
+    }
+}
+
+function renderToday() {
+    const now = getMadridNow();
+    const dayEl = document.getElementById('todayDay');
+    const hoursEl = document.getElementById('todayHours');
+    const slots = SCHEDULE[now.day] || [];
+    dayEl.textContent = t('days.' + now.day);
+    if (slots.length === 0) {
+        hoursEl.textContent = t('days.closed');
+        hoursEl.classList.add('closed');
+    } else {
+        hoursEl.textContent = slots.map(s => `${s[0]}–${s[1]}`).join(' / ');
+        hoursEl.classList.remove('closed');
+    }
+}
+
+/* ===== Init ===== */
+document.addEventListener('DOMContentLoaded', () => {
+    applyTranslations();
+    renderToday();
+    updateStatus();
+    setInterval(updateStatus, 30000);
+    setInterval(renderToday, 60000);
+    document.querySelectorAll('.lang-btn').forEach(b => {
+        b.classList.toggle('active', b.dataset.lang === currentLang);
+    });
+});
+</script>
+
+</body>
+</html>
