@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página no encontrada (404) | Arretxe Motos Irún</title>
+    <meta name="description" content="La página que buscas no existe. Vuelve al inicio o llámanos al 943 62 59 05.">
+    <meta name="robots" content="noindex, follow">
+    <link rel="icon" type="image/png" href="LOGO-FAVICON.png">
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#CC0000">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1a1a1a">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html, body { height: 100%; }
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a0505 50%, #4a0000 100%);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            text-align: center;
+        }
+        .wrap { max-width: 580px; }
+        img.logo { width: 220px; max-width: 80%; margin-bottom: 32px; filter: brightness(0) invert(1); }
+        .code {
+            font-size: clamp(5rem, 18vw, 9rem);
+            font-weight: 900;
+            line-height: 1;
+            background: linear-gradient(180deg, #fff 0%, #ff8c8c 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 14px;
+        }
+        h1 { font-size: clamp(1.4rem, 3vw, 1.9rem); margin-bottom: 14px; }
+        p { font-size: 1rem; color: #ccc; margin-bottom: 30px; line-height: 1.6; }
+        .actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+        .btn {
+            display: inline-block;
+            padding: 14px 28px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: transform 0.2s, background 0.2s;
+        }
+        .btn-primary { background: #CC0000; color: #fff; }
+        .btn-primary:hover { background: #aa0000; transform: translateY(-2px); }
+        .btn-outline { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,0.6); }
+        .btn-outline:hover { background: rgba(255,255,255,0.1); transform: translateY(-2px); }
+        .phone { margin-top: 30px; font-size: 0.92rem; color: #aaa; }
+        .phone a { color: #fff; font-weight: 700; }
+        :focus-visible { outline: 2px solid #fff; outline-offset: 3px; border-radius: 4px; }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <img src="LOGO.webp" alt="Arretxe Motos" class="logo" width="600" height="93">
+    <div class="code" aria-hidden="true">404</div>
+    <h1>Página no encontrada</h1>
+    <p>La página que buscas no existe o se ha movido. Pero no te preocupes — sigue aquí estamos.</p>
+    <div class="actions">
+        <a href="index.html" class="btn btn-primary">Volver al inicio</a>
+        <a href="reservas.html" class="btn btn-outline">Reservar cita</a>
+    </div>
+    <p class="phone">¿Necesitas ayuda? Llámanos al <a href="tel:+34943625905">943 62 59 05</a></p>
+</div>
+</body>
+</html>
