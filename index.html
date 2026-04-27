@@ -1176,8 +1176,6 @@
         }
         .form-group input:focus ~ label,
         .form-group textarea:focus ~ label { color: var(--red); }
-        .form-group input::placeholder,
-        .form-group textarea::placeholder { color: #666; opacity: 1; }
         .btn-shimmer {
             position: relative;
             overflow: hidden;
@@ -2083,19 +2081,19 @@
         <div class="contact-form">
             <form id="contactForm" onsubmit="submitForm(event)">
                 <div class="form-group">
-                    <input type="text" id="fname" name="name" placeholder="Tu nombre" required>
+                    <input type="text" id="fname" name="name" required>
                     <label for="fname" data-i18n="contact.form.name">Tu nombre</label>
                 </div>
                 <div class="form-group">
-                    <input type="email" id="femail" name="email" placeholder="Tu email" required>
+                    <input type="email" id="femail" name="email" required>
                     <label for="femail" data-i18n="contact.form.email">Tu email</label>
                 </div>
                 <div class="form-group">
-                    <input type="tel" id="fphone" name="phone" placeholder="Teléfono">
+                    <input type="tel" id="fphone" name="phone">
                     <label for="fphone" data-i18n="contact.form.phone">Teléfono (opcional)</label>
                 </div>
                 <div class="form-group">
-                    <textarea id="fmsg" name="message" placeholder="Tu mensaje" required></textarea>
+                    <textarea id="fmsg" name="message" required></textarea>
                     <label for="fmsg" data-i18n="contact.form.message">Tu mensaje</label>
                 </div>
                 <button type="submit" class="btn-shimmer" id="submitBtn" data-i18n="contact.form.send">Enviar mensaje</button>
