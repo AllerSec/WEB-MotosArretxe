@@ -1,6 +1,30 @@
+# robots.txt - Arretxe Motos
+# https://www.motosarretxe.com/
+
 User-agent: *
 Allow: /
 Disallow: /node_modules/
 Disallow: /.git/
+Disallow: /package.json
+Disallow: /package-lock.json
+Disallow: /.htaccess
 
+# Googlebot - acceso completo
+User-agent: Googlebot
+Allow: /
+Allow: /*.css$
+Allow: /*.js$
+Allow: /*.webp$
+Allow: /*.jpg$
+Allow: /*.png$
+
+# Googlebot-Image - permitir todas las imagenes
+User-agent: Googlebot-Image
+Allow: /
+
+# Bingbot
+User-agent: Bingbot
+Allow: /
+
+# Sitemap
 Sitemap: https://www.motosarretxe.com/sitemap.xml
