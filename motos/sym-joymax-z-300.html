@@ -141,6 +141,19 @@
         .footer-bottom { max-width: 1200px; margin: 0 auto; padding-top: 20px; border-top: 1px solid #333; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; font-size: 12px; color: #666; }
         .footer-bottom a { color: #666; }
         .footer-bottom a:hover { color: #aaa; }
+        /* RELATED MODELS */
+        .related-models { background: var(--white); padding: 48px 20px; }
+        .related-inner { max-width: 1200px; margin: 0 auto; }
+        .related-title { font-size: 26px; font-weight: 700; margin-bottom: 28px; text-align: center; }
+        .related-title span { color: var(--red); }
+        .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+        .related-card { background: var(--gray-light); border-radius: var(--radius); padding: 20px; display: flex; flex-direction: column; gap: 8px; border: 2px solid transparent; transition: border-color var(--transition), transform var(--transition); }
+        .related-card:hover { border-color: var(--red); transform: translateY(-3px); }
+        .related-card strong { font-size: 16px; font-weight: 700; color: var(--black); }
+        .related-card span { font-size: 13px; color: var(--red); font-weight: 600; }
+        .footer-logo { height: 46px; width: auto; margin-bottom: 14px; filter: brightness(0) invert(1); }
+        .footer-desc { font-size: 0.87rem; color: #999; line-height: 1.7; }
+
         @media (max-width: 768px) {
             .nav { display: none; } .burger { display: flex; }
             .hero-inner { grid-template-columns: 1fr; gap: 28px; }
@@ -175,7 +188,7 @@
                 <a href="../index.html#contacto">Contacto</a>
                 <a href="../reservas.html" class="nav-cta">Reservar Cita</a>
             </nav>
-            <button class="burger" aria-label="Abrir menú móvil" onclick="document.getElementById('mobileNav').classList.toggle('open')">
+            <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileNav">
                 <span></span><span></span><span></span>
             </button>
         </div>
@@ -267,6 +280,31 @@
         </div>
     </section>
 
+    <!-- MODELOS RELACIONADOS -->
+    <section class="related-models">
+        <div class="related-inner">
+            <h2 class="related-title">Otros modelos <span>SYM</span> en Arretxe</h2>
+            <div class="related-grid">
+                <a href="sym-joymax-125.html" class="related-card">
+                    <strong>SYM Joymax 125</strong>
+                    <span>Ver modelo →</span>
+                </a>
+                <a href="sym-adxtg-400.html" class="related-card">
+                    <strong>SYM ADX TG 400</strong>
+                    <span>Ver modelo →</span>
+                </a>
+                <a href="sym-adx-125.html" class="related-card">
+                    <strong>SYM ADX 125</strong>
+                    <span>Ver modelo →</span>
+                </a>
+                <a href="sym-jet-evo-125.html" class="related-card">
+                    <strong>SYM Jet EVO 125</strong>
+                    <span>Ver modelo →</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
     <section class="cta-phone">
         <h2>El maxi-scooter premium a precio SYM</h2>
         <p>Joymax Z 300 disponible en Arretxe Motos Irún. Llama y pide prueba.</p>
@@ -278,8 +316,8 @@
     <footer class="footer">
         <div class="footer-grid">
             <div class="footer-col">
-                <h4>Arretxe Motos</h4>
-                <p>Distribuidores oficiales Honda y SYM en Irún, Gipuzkoa. Más de 58 años de experiencia en el sector de la moto.</p>
+                <img src="../LOGO.webp" alt="Arretxe Motos" class="footer-logo" width="200" height="31" loading="lazy" decoding="async">
+                <p class="footer-desc">Distribuidores oficiales Honda y SYM en Irún, Gipuzkoa. Más de 58 años de experiencia en el sector de la moto.</p>
             </div>
             <div class="footer-col">
                 <h4>Contacto</h4>
@@ -300,10 +338,15 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <span>© 2025 Arretxe Motos y Maquinaria Agrícola S.L. Todos los derechos reservados.</span>
+            <span>© 2026 Arretxe Motos y Maquinaria Agrícola S.L. Todos los derechos reservados.</span>
             <span><a href="../aviso-legal.html">Aviso Legal</a> · <a href="../privacidad.html">Privacidad</a> · <a href="../cookies.html">Cookies</a></span>
         </div>
     </footer>
 
+    <script>
+        const burger = document.getElementById('burger');
+        const mobileNav = document.getElementById('mobileNav');
+        burger.addEventListener('click', function() { const open = mobileNav.classList.toggle('open'); burger.setAttribute('aria-expanded', open); });
+    </script>
 </body>
 </html>
