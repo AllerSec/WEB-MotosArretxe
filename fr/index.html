@@ -985,7 +985,7 @@
             min-width: 200px;
         }
         .cookie-banner-text a {
-            color: var(--red);
+            color: #ff6b6b;
             text-decoration: underline;
         }
         .cookie-banner-btns {
@@ -1294,8 +1294,8 @@
         }
         .location-detail img { width: 20px; height: 20px; filter: brightness(0) invert(1); margin-top: 2px; flex-shrink: 0; }
         .location-detail-text {}
-        .location-detail-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; opacity: 0.75; margin-bottom: 2px; }
-        .location-detail-value { font-size: 0.9rem; opacity: 0.95; line-height: 1.5; }
+        .location-detail-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; opacity: 0.95; margin-bottom: 2px; }
+        .location-detail-value { font-size: 0.9rem; opacity: 1; line-height: 1.5; }
         .streetview-map iframe {
             width: 100%;
             height: 100%;
@@ -1481,8 +1481,10 @@
             padding-top: 20px;
             text-align: center;
             font-size: 0.8rem;
-            color: #555;
+            color: #b0b0b0;
         }
+        .footer-bottom a { color: #b0b0b0 !important; }
+        .footer-bottom p[style*="color:#666"] { color: #b0b0b0 !important; }
 
         /* ===== RESPONSIVE ===== */
         @media (max-width: 1024px) {
@@ -2192,7 +2194,7 @@
             </div>
         </div>
         <div class="streetview-map">
-            <button type="button" class="map-placeholder" id="mapPlaceholder" aria-label="Cargar mapa de Google Street View">
+            <button type="button" class="map-placeholder" id="mapPlaceholder">
                 <img src="../map-placeholder.webp" alt="Aperçu de la localisation d'Arretxe Motos à Irún" width="1000" height="500" loading="lazy" decoding="async">
                 <span class="map-placeholder-overlay">
                     <strong data-i18n="map.title">Localisation de l'atelier</strong>
@@ -2301,11 +2303,11 @@
     </div>
     <div class="footer-bottom">
         <p>&copy; 2026 Arretxe Motos y Maquinaria Agricola S.L. &mdash; <span data-i18n="footer.rights">Tous droits réservés</span></p>
-        <p style="margin-top:8px; font-size:0.75rem; color:#666;" data-i18n="footer.dev">Desarrollado por <a href="https://unaxaller.com" target="_blank" rel="noopener" style="color:var(--red); font-weight:600;">Unax Aller</a></p>
+        <p style="margin-top:8px; font-size:0.75rem; color:#b0b0b0;" data-i18n="footer.dev">Desarrollado por <a href="https://unaxaller.com" target="_blank" rel="noopener" style="color:#ff6b6b; font-weight:600;">Unax Aller</a></p>
         <p style="margin-top:8px; font-size:0.75rem;">
-            <a href="aviso-legal.html" onclick="event.preventDefault?openLegal('aviso'):0;return false;" style="color:#666;margin-right:14px;" data-i18n="footer.legal.aviso">Mentions Légales</a>
-            <a href="privacidad.html" onclick="event.preventDefault?openLegal('privacidad'):0;return false;" style="color:#666;margin-right:14px;" data-i18n="footer.legal.privacidad">Politique de Confidentialité</a>
-            <a href="cookies.html" onclick="event.preventDefault?openLegal('cookies'):0;return false;" style="color:#666;" data-i18n="footer.legal.cookies">Politique des Cookies</a>
+            <a href="aviso-legal.html" onclick="event.preventDefault?openLegal('aviso'):0;return false;" style="color:#b0b0b0;margin-right:14px;" data-i18n="footer.legal.aviso">Mentions Légales</a>
+            <a href="privacidad.html" onclick="event.preventDefault?openLegal('privacidad'):0;return false;" style="color:#b0b0b0;margin-right:14px;" data-i18n="footer.legal.privacidad">Politique de Confidentialité</a>
+            <a href="cookies.html" onclick="event.preventDefault?openLegal('cookies'):0;return false;" style="color:#b0b0b0;" data-i18n="footer.legal.cookies">Politique des Cookies</a>
         </p>
     </div>
 </footer>
