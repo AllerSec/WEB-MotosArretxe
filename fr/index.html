@@ -336,7 +336,7 @@
             gap: 6px;
             color: inherit;
         }
-        a.topbar-item { transition: opacity 0.2s; }
+        a.topbar-item { transition: opacity 0.2s; padding: 4px 6px; min-height: 24px; }
         a.topbar-item:hover, a.topbar-item:focus-visible { opacity: 0.85; text-decoration: underline; outline: 0; }
         .topbar-item img { width: 14px; height: 14px; filter: brightness(0) invert(1); }
         :focus-visible { outline: 2px solid var(--red); outline-offset: 2px; border-radius: 3px; }
@@ -582,7 +582,7 @@
             font-weight: 700;
             letter-spacing: 2px;
             text-transform: uppercase;
-            color: #999;
+            color: #595959;
             margin-bottom: 24px;
         }
         @keyframes brandScroll {
@@ -647,7 +647,7 @@
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.18em;
-            color: #999;
+            color: #595959;
             margin-bottom: 14px;
         }
         .cta-phone-numbers {
@@ -684,7 +684,7 @@
         .cta-phone-hours {
             margin-top: 16px;
             font-size: 0.85rem;
-            color: #999;
+            color: #595959;
             letter-spacing: 0.06em;
         }
 
@@ -1127,7 +1127,7 @@
         }
         .review-source {
             font-size: 0.78rem;
-            color: #999;
+            color: #595959;
             margin-top: 2px;
         }
 
@@ -1446,7 +1446,7 @@
         }
         .footer-logo { height: 46px; width: auto; margin-bottom: 14px; filter: brightness(0) invert(1); }
         .footer-desc { font-size: 0.87rem; color: #999; line-height: 1.7; }
-        .footer-col h4 {
+        .footer-col h3 {
             font-size: 0.9rem;
             font-weight: 700;
             color: #fff;
@@ -1548,15 +1548,15 @@
 <!-- ===== TOPBAR ===== -->
 <div class="topbar">
     <div class="topbar-inner">
-        <a class="topbar-item" href="tel:+34943625905" aria-label="Appeler le +34 943 62 59 05">
+        <a class="topbar-item" href="tel:+34943625905">
             <img src="../icons/phone.svg" alt="" width="24" height="24">
             <span>943 62 59 05</span>
         </a>
-        <a class="topbar-item" href="mailto:motosarretxe@gmail.com" aria-label="Envoyer un email à motosarretxe@gmail.com">
+        <a class="topbar-item" href="mailto:motosarretxe@gmail.com">
             <img src="../icons/email.svg" alt="" width="24" height="24">
             <span>motosarretxe@gmail.com</span>
         </a>
-        <a class="topbar-item" href="https://maps.google.com/?q=Arretxe+Motos+Irun" target="_blank" rel="noopener" aria-label="Voir la localisation sur Google Maps">
+        <a class="topbar-item" href="https://maps.google.com/?q=Arretxe+Motos+Irun" target="_blank" rel="noopener">
             <img src="../icons/location.svg" alt="" width="24" height="24">
             <span>Salvador Echeandia Kalea, 12, BJ 1 &mdash; Irún, Gipuzkoa</span>
         </a>
@@ -1666,7 +1666,7 @@
 <!-- ===== BRANDS CAROUSEL ===== -->
 <section class="brands-section">
     <p class="brands-label" data-i18n="brands.label">Marques officielles</p>
-    <div class="slider" aria-label="Marques officielles">
+    <div class="slider" role="region" aria-label="Marques officielles">
         <div class="slide-track" aria-hidden="true">
             <div class="slide"><img src="../honda-motorcycles-logo-11.webp" alt="Honda" width="400" height="307" loading="lazy" decoding="async"></div>
             <div class="slide"><img src="../logo-motos-sym-rojo.webp" alt="SYM" width="300" height="126" loading="lazy" decoding="async"></div>
@@ -2261,7 +2261,7 @@
             <p class="footer-desc" data-i18n="footer.desc">Atelier de motos à Irún, Pays Basque. Distributeurs officiels Honda et SYM depuis plus de 58 ans.</p>
         </div>
         <div class="footer-col">
-            <h4 data-i18n="footer.nav.title">Navegación</h4>
+            <h3 data-i18n="footer.nav.title">Navegación</h3>
             <nav class="footer-links">
                 <a href="#inicio" data-i18n="nav.inicio">Accueil</a>
                 <a href="#nosotros" data-i18n="nav.nosotros">À propos</a>
@@ -2272,7 +2272,7 @@
                 <a href="reservas.html" data-i18n="nav.reservas">Réservation</a>
                 <a href="#contacto" data-i18n="nav.contacto">Contact</a>
             </nav>
-            <h4 style="margin-top:20px" data-i18n="footer.legal.title">Legal</h4>
+            <h3 style="margin-top:20px" data-i18n="footer.legal.title">Legal</h3>
             <nav class="footer-links" aria-label="Enlaces legales">
                 <a href="aviso-legal.html" onclick="event.preventDefault?openLegal('aviso'):0;return false;" data-i18n="footer.legal.aviso">Mentions Légales</a>
                 <a href="privacidad.html" onclick="event.preventDefault?openLegal('privacidad'):0;return false;" data-i18n="footer.legal.privacidad">Politique de Confidentialité</a>
@@ -2280,7 +2280,7 @@
             </nav>
         </div>
         <div class="footer-col">
-            <h4 data-i18n="footer.contact.title">Contacto</h4>
+            <h3 data-i18n="footer.contact.title">Contacto</h3>
             <div class="footer-contact-item">
                 <img src="../icons/location.svg" alt="" width="24" height="24">
                 <span>Salvador Echeandia Kalea, 12, BJ 1<br>20304 Irún, Gipuzkoa</span>

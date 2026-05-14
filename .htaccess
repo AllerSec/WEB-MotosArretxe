@@ -7,11 +7,8 @@
 # --------------------------------------------------------------------------
 RewriteEngine On
 
-# Forzar HTTPS
-RewriteCond %{HTTPS} off
-RewriteRule ^(.*)$ https://www.motosarretxe.com/$1 [R=301,L]
-
-# Forzar www (evita duplicados sin-www / con-www)
+# Forzar HTTPS + www en una sola redireccion (evita doble salto)
+RewriteCond %{HTTPS} off [OR]
 RewriteCond %{HTTP_HOST} ^motosarretxe\.com$ [NC]
 RewriteRule ^(.*)$ https://www.motosarretxe.com/$1 [R=301,L]
 
